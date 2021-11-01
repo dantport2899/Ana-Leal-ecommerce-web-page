@@ -77,38 +77,61 @@ session_start();
             </thead>
             <tbody class="table-hover">
                 <tr>
-                    <td class="text-left">1</td>
-                    <td class="text-left">Vestido pro</td>
-                    <td class="text-left">January</td>
-                    <td class="text-left">$ 50,000.00</td>
-                    <td class="text-left">January</td>
-                    <td class="text-left">$ 50,000.00sdddddddddddddddddddddddd</td>
-                    <td class="text-left">January</td>
-                    <td class="text-left">$ 50,000.00</td>
-                    <td class="text-left">January</td>
-                    <td class="text-left">$ 50,000.00</td>
+                    
+                <?php
+                    require("../fun/connect_db.php");
+                    $sql="SELECT * FROM prendas";
+                    $result=mysqli_query($conexion,$sql);
 
-                    <th width="10%" class="text-center">
-                        <form action="modificargaleria.php" method="post">
-                            <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Galeria</button>
-                        </form>
-                    </th>
-                    <th width="10%" class="text-center">
-                        <form action="modificargaleria.php" method="post">
-                            <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Modificar</button>
-                        </form>
-                    </th>
-                    <th width="10%" class="text-center">
-                        <form action="modificargaleria.php" method="post">
-                            <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Eliminar</button>
-                        </form>
-                    </th>
+                    while ($fila=mysqli_fetch_array($result)) {
+                        $id=$fila['idprenda'];
+                        $nombre=$fila['nom_prenda'];
+                        $imagen=$fila['img_archivo'];
+                        $descripcion=$fila['descripcion'];
+                        $departamento=$fila['iddepartamento'];
+                        $talla=$fila['idtalla'];
+                        $color=$fila['color'];
+                        $estilo=$fila['idestilo'];
+                        $existencias=$fila['existencias'];
+                        $precio=$fila['precio'];
+                                            
+                        ?>
+                                                                                   
+                        <td class="text-left"><?php echo $id ?></td>
+                        <td class="text-left"><?php echo $nombre ?></td>
+                        <td class="text-left"><img src="<?php echo $imagen ?>" class="card-img-top" alt="..."></td>
+                        <td class="text-left"><?php echo $descripcion ?></td>
+                        <td class="text-left"><?php echo $departamento ?></td>
+                        <td class="text-left"><?php echo $talla ?></td>
+                        <td class="text-left"><?php echo $color ?></td>
+                        <td class="text-left"><?php echo $estilo ?></td>
+                        <td class="text-left"><?php echo $existencias ?></td>
+                        <td class="text-left"><?php echo $precio ?></td>
+
+                        <th width="10%" class="text-center">
+                            <form action="modificargaleria.php" method="post">
+                                <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Galeria</button>
+                            </form>
+                        </th>
+                        <th width="10%" class="text-center">
+                            <form action="modificargaleria.php" method="post">
+                                <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Modificar</button>
+                            </form>
+                        </th>
+                        <th width="10%" class="text-center">
+                            <form action="modificargaleria.php" method="post">
+                                <button class="btn btn-danger" type="submit" name="btnAction" value="eliminar">Eliminar</button>
+                            </form>
+                        </th>
+                   
                 </tr>
                
-            
+                <?php } ?>
                 
             </tbody>
         </table>
+
+        
         <!-- Tabla end -->
 
         <!-- Insertar footer -->
