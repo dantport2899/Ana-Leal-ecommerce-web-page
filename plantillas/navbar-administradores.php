@@ -1,9 +1,3 @@
-<?php
-//cargar la sesion
-session_start();
-
- ?>
-
 <html>
 <head>
         <meta charset="utf-8">
@@ -13,8 +7,7 @@ session_start();
         <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
-
+        
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -27,6 +20,7 @@ session_start();
 
         <!-- Template Stylesheet -->
         <link href="../css/style.css" rel="stylesheet">
+        
     </head>
     <body>
         <!-- Top Bar Start -->
@@ -63,19 +57,19 @@ session_start();
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="home-cliente.php" class="navbar-brand">Ana Leal</a>
+                <a href="home-administrador.php" class="navbar-brand">Ana Leal</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="home-cliente.php" class="nav-item nav-link">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Novedades</a>
-                        <a href="service.html" class="nav-item nav-link">Ropa de boda</a>
-                        <a href="price.html" class="nav-item nav-link">Ropa de ocasión</a>
-                        <a href="team.html" class="nav-item nav-link">Ropa en oferta</a>
-                        <a href="portfolio.html" class="nav-item nav-link">Contactanos</a>
+                        <a href="home-administrador.php" class="nav-item nav-link">Inicio</a>
+                        <a href="inventario.php" class="nav-item nav-link">Inventario</a>
+                        <a href="service.html" class="nav-item nav-link">Pedidos</a>
+                        <a href="price.html" class="nav-item nav-link">Descuentos</a>
+                        <a href="team.html" class="nav-item nav-link">Calendario</a>
+                        <a href="portfolio.html" class="nav-item nav-link">FAQ</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?></a>
                             <div class="dropdown-menu">
@@ -85,7 +79,7 @@ session_start();
                         </div>
                         
                         <a href="contact.html" class="nav-item nav-link">Ayudas</a>
-                        <form class="d-flex">
+                        
                         
                         
                     </div>
