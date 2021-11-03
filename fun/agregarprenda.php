@@ -40,8 +40,6 @@ if($result)
 }
 mysqli_close($conexion);
 
-ob_start();
-header("refresh:2,url=../administrador/inventario.php");
-ob_end_flush();
+echo "<script>location.href='../administrador/inventario.php'</script>";
 
  ?>
