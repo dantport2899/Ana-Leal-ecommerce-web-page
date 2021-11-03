@@ -23,7 +23,7 @@ if($f=mysqli_fetch_assoc($sql)){
     if($_SESSION['rol']==1)
     {
       echo '<script>alert("Bienvenido Administrador"  )</script>';
-      echo "<script>location.href='../adiministrador/home-administrador.php'</script>";
+      echo "<script>location.href='../administrador/home-administrador.php'</script>";
     }
     elseif ($_SESSION['rol']==2)
     {
