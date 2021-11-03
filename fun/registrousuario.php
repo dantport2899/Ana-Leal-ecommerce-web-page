@@ -15,7 +15,6 @@ if($result)
 }
 mysqli_close($conexion);
 
-ob_start();
-header("refresh:2,url=../login.php");
-ob_end_flush();
+echo "<script>location.href='../login.php'</script>";
+
  ?>
