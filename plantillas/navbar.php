@@ -69,7 +69,7 @@
                         <a href="service.html" class="nav-item nav-link">Ropa de boda</a>
                         <a href="price.html" class="nav-item nav-link">Ropa de ocasión</a>
                         <a href="team.html" class="nav-item nav-link">Ropa en oferta</a>
-                        <a href="portfolio.html" class="nav-item nav-link">Contactanos</a>
+                        <a href="portfolio.html" class="nav-item nav-link">ontactanos</a>
                         <a href="carrito.php" class="nav-item nav-link">Carrito</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Perfil</a>
