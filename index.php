@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="hero-text">
-                            <h1>Ana Leal trajes y vestidos</h1>
+                            <h1>Ana Leal prendas y vestidos</h1>
                             <p>
                                 Registrate para navegar en nuestro amplio catalogo.
                             </p>
