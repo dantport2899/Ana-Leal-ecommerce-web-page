@@ -27,7 +27,7 @@ $price = $_POST['price'];
 
 
 
-$sql="Insert into prendas (nom_prenda,descripcion,img_archivo,iddepartamento,idtalla,existencias,color,idestilo,idmaterial,iddescuento,precio) values ('$name','$description','$destino','$department','$talla','$exist','$color','$style','$material','$desc','$price') " ;
+$sql="Insert into prendas (nom_prenda,descripcion,img_nombre,img_archivo,iddepartamento,idtalla,existencias,color,idestilo,idmaterial,iddescuento,precio) values ('$name','$description','$imagen','$destino','$department','$talla','$exist','$color','$style','$material','$desc','$price') " ;
 
 $result=mysqli_query($conexion, $sql);
 
@@ -40,8 +40,6 @@ if($result)
 }
 mysqli_close($conexion);
 
-ob_start();
-header("refresh:2,url=../administrador/nuevaprenda.php");
-ob_end_flush();
+echo "<script>location.href='../administrador/inventario.php'</script>";
 
  ?>
