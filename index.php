@@ -161,7 +161,7 @@
                     Contacto
                 </h6>
                 <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
-                <p><i class="fas fa-envelope me-3">analeal@example.xom</i></p>
+                <p><i class="fas fa-envelope me-3">&nbsp;analeal@example.com</i></p>
                 <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
                 <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
             </div>
