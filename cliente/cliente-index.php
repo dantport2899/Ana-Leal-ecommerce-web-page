@@ -62,7 +62,7 @@
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="../index.php">Cerrar sesión</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
                             </li>
                         </ul>
@@ -119,6 +119,25 @@
                         <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
                         <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
+            </div>
+        </div>
+
+        <!-- Modal para cerrar sesión -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">¿Cerrar sesión?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cualquier pedido no confirmado se cancelará</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../index.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                    </div>
+                </div>
             </div>
         </div>
 

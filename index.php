@@ -56,7 +56,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="#" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
+                            <a class="nav-link" href="../Tiendaderopa/login.php" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -121,7 +121,7 @@
                 <!--Grid column-->
                     <div class="col-auto">
                         <p class="pt-2">
-                        <strong>Sign up for our newsletter</strong>
+                        <strong>Suscríbete a nuestro newsletter</strong>
                         </p>
                     </div>
                 <!--Grid column-->

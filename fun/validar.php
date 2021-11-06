@@ -28,7 +28,7 @@ if($f=mysqli_fetch_assoc($sql)){
     elseif ($_SESSION['rol']==2)
     {
       echo '<script>alert("Bienvenido Usuario")</script>';
-      echo "<script>location.href='../cliente/home-cliente.php'</script>";
+      echo "<script>location.href='../cliente/cliente-index.php'</script>";
     }
     
 
