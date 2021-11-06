@@ -40,9 +40,9 @@ session_start();
 
         <!-- Consulta bd -->
         <?php
-            $iddescuento = $_POST['iddesc'];
+            $iddescuento = $_POST['idd'];
             require("../fun/connect_db.php");
-            $sqldesc="SELECT * FROM descuentos where iddescuento='$iddescuento'";
+            $sqldesc="SELECT * FROM descuentos WHERE iddescuento=$iddescuento";
             $resultdesc=mysqli_query($conexion,$sqldesc);
 
             while ($desc=mysqli_fetch_array($resultdesc)) {
@@ -63,7 +63,7 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Modificar <?php $nombred ?> </h2>
+                        <h2>Modificar: <?php echo $nombred ?> </h2>
                     </div>
                    
                 </div>
@@ -82,29 +82,29 @@ session_start();
                     <div class="col-lg-7 col-md-6">
                         
                         <div class="about-text">
-                            <form action="../fun/agregardescuento.php" method="POST" enctype="multipart/form-data" >
+                            <form action="../fun/actualizardescuento.php" method="POST" enctype="multipart/form-data" >
                                 <p>Nombre</p>
                                 <div class="control-group">
-                                        <input type="text" class="form-control" id="name" name="name" value=" <?php $nombre ?> " placeholder="Ingresa el nombre del descuento" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $nombred ?>" placeholder="Ingresa el nombre del descuento" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
                                         <p class="help-block text-danger"></p>
                                 </div>
                                 <p>Descripcion</p>
                                 <div class="control-group">
-                                        <input type="text" class="form-control" id="name" name="description" placeholder="Ingresa una breve descripcion" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <input type="text" class="form-control" id="name" name="description" value="<?php echo $descripciond ?>" placeholder="Ingresa una breve descripcion" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
                                         <p class="help-block text-danger"></p>
                                 </div>
                                 <p>Porcentaje</p>
                                 <div class="control-group">
-                                        <input type="number" class="form-control" value="0" id="name" name="descuento" placeholder="Ingresa el porcentaje del descuento aplicado" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <input type="number" class="form-control" id="name" name="descuento" value="<?php echo $descuentod ?>" placeholder="Ingresa el porcentaje del descuento aplicado" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
                                         <p class="help-block text-danger"></p>
                                 </div>
                                 
 
-
+                                        <input type="hidden" name="iddescuento" value="<?php echo $iddescuento ?>">
                                 
                                 <div class="about-text">
                             
-                                <a class="btn" href=""><input class="btn" id="sendMessageButton" type="submit" value="Agregar" ></a>
+                                <a class="btn" href=""><input class="btn" id="sendMessageButton" type="submit" value="Modificar" ></a>
 
                                 </div>
 

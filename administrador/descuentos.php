@@ -101,9 +101,11 @@ session_start();
                             </td>
                             <td class="td-actions">
                                 <form action="modificardescuento.php" method="post">
-                                    <input type="hidden" name="iddesc" value="<?php echo $iddescuento ?>">
+                                    <input type="hidden" name="idd" value="<?php echo $iddescuento ?>">
                                     <button class="btn btn-access" type="submit" name="btnAction" value="Modiciar">Modificar</button>
-                                </form>
+                                </form>    
+
+
                                 <form action="../fun/eliminardescuento.php" method="post">
                                     <input type="hidden" name="id" value="<?php echo $iddescuento ?>">
                                     
