@@ -53,7 +53,110 @@ session_start();
         </div>
         <!-- Page Header End -->
 
-        
+        <div class="col-lg-12 col-md-12 ml-auto mr-auto">
+                <div class="table-responsive">
+                <table class="table table-shopping">
+                    <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center"></th>
+                            <th>Prenda</th>
+                            <th class="th-description">Descripcion</th>
+                            <th class="th-description">Departamento</th>                            
+                            <th class="th-description">Talla</th>
+                            <th class="th-description">Color</th>
+                            <th class="text-right">Price</th>
+                            <th class="th-description">Existencias</th>
+                            <th class="text-right"></th>
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php
+                    require("../fun/connect_db.php");
+                    $sql="SELECT * FROM prendas";
+                    $result=mysqli_query($conexion,$sql);
+
+                    while ($fila=mysqli_fetch_array($result)) {
+                        $idprenda=$fila['idprenda'];
+                        $nombre=$fila['nom_prenda'];
+                        $img_nombre=$fila['img_nombre'];
+                        $imagen=$fila['img_archivo'];
+                        $descripcion=$fila['descripcion'];
+                        $departamento=$fila['iddepartamento'];
+                        $talla=$fila['idtalla'];
+                        $color=$fila['color'];
+                        $estilo=$fila['idestilo'];
+                        $existencias=$fila['existencias'];
+                        $precio=$fila['precio'];
+                                            
+                        ?>
+                        <tr>
+                            <td class="text-center">
+                                <?php echo $idprenda ?>
+                            </td>
+                            <td>
+                                <div class="img-container">
+                                    <img src="<?php echo $imagen ?>" alt="...">
+                                </div>
+                            </td>
+                            <td class="td-name">
+                                <a href="#jacket"><?php echo $nombre ?></a>
+                           </td>
+                            <td>
+                                <?php echo $descripcion ?>
+                            </td>
+                            <td >
+                                <?php
+                                     require("../fun/connect_db.php");
+                                     $sql2="SELECT * FROM departamento WHERE iddepartamento=$departamento ";
+                                     $result2=mysqli_query($conexion,$sql2);
+
+                                     while ($dep=mysqli_fetch_array($result2)) {
+                                        echo $dep['nom_departamento'];
+                                     }
+                                ?>
+                            </td>
+                            <td >
+                                <?php
+                                    require("../fun/connect_db.php");
+                                    $sql3="SELECT * FROM talla WHERE idtalla=$talla ";
+                                    $result3=mysqli_query($conexion,$sql3);
+
+                                    while ($tallaprodcuto=mysqli_fetch_array($result3)) {
+                                       echo $tallaprodcuto['nom_talla'];
+                                    }
+                                ?>
+                            </td>
+                            <td >
+                                <?php echo $color?>
+                            </td>
+                            <td class="td-number text-right">
+                                <small>$</small><?php echo $precio ?>
+                            </td>
+                            <td class="th-description">
+                                <?php echo $existencias ?>
+                            </td>
+                            <td class="td-actions">
+                                <form action="modificarprenda.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $idprenda ?>">
+                                    <button class="btn btn-access" type="submit" name="btnAction" value="Modiciar">Modificar</button>
+                                </form>
+                                <form action="../fun/eliminarprenda.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $idprenda ?>">
+                                    <input type="hidden" name="nombre" value="<?php echo $img_nombre ?>">
+                                    <button width="300px" class="btn btn-danger" type="submit" name="btnAction" value="Eliminar ">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>   
+                    </tbody>
+                </table>
+                </div>
+    
+            </div>
         
         <!-- Tabla Start -->
         <table class="table-fill">
