@@ -45,7 +45,7 @@ session_start();
                         <h2>Descuentos</h2>
                     </div>
                     <div class="col-12">
-                        <a href="nuevaprenda.php">Agregar Nuevo Descuento</a>
+                        <a href="nuevodescuento.php">Agregar Nuevo Descuento</a>
                         
                     </div>
                 </div>
@@ -97,14 +97,14 @@ session_start();
                                 <?php echo $descripcion ?>
                             </td>
                             <td >
-                                <?php echo $porcentage. "%"?>
+                                <h2><?php echo $porcentage. "%"?></h2> 
                             </td>
                             <td class="td-actions">
-                                <form action="modificarprenda.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $iddescuento ?>">
+                                <form action="modificardescuento.php" method="post">
+                                    <input type="hidden" name="iddesc" value="<?php echo $iddescuento ?>">
                                     <button class="btn btn-access" type="submit" name="btnAction" value="Modiciar">Modificar</button>
                                 </form>
-                                <form action="../fun/eliminarprenda.php" method="post">
+                                <form action="../fun/eliminardescuento.php" method="post">
                                     <input type="hidden" name="id" value="<?php echo $iddescuento ?>">
                                     
                                     <button width="300px" class="btn btn-danger" type="submit" name="btnAction" value="Eliminar ">Eliminar</button>

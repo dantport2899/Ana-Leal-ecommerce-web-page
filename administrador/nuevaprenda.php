@@ -193,12 +193,12 @@ session_start();
 
                                 <p>Existencias</p>
                                 <div class="control-group">
-                                        <input type="text" class="form-control" id="name" name="exist" placeholder="Ingresa las existencias" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <input type="number" class="form-control" id="name" name="exist" placeholder="Ingresa las existencias" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
                                         <p class="help-block text-danger"></p>
                                 </div>
                                 <p>Precio</p>
                                 <div class="control-group">
-                                        <input type="text" class="form-control" id="name" name="price" placeholder="Ingresa el precio" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <input type="number" class="form-control" id="name" value="500"  name="price" placeholder="Ingresa el precio" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
                                         <p class="help-block text-danger"></p>
                                 </div>                                
 
