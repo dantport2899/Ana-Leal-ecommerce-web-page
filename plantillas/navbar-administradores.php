@@ -67,7 +67,7 @@
                         <a href="home-administrador.php" class="nav-item nav-link">Inicio</a>
                         <a href="inventario.php" class="nav-item nav-link">Inventario</a>
                         <a href="service.html" class="nav-item nav-link">Pedidos</a>
-                        <a href="price.html" class="nav-item nav-link">Descuentos</a>
+                        <a href="descuentos.php" class="nav-item nav-link">Descuentos</a>
                         <a href="team.html" class="nav-item nav-link">Calendario</a>
                         <a href="portfolio.html" class="nav-item nav-link">FAQ</a>
                         <div class="nav-item dropdown">
