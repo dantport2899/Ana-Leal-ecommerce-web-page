@@ -3,274 +3,169 @@
     <head>
         <meta charset="utf-8">
         <title>Ana Leal</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
-
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
         <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <link href="css/hoverimages.css" rel="stylesheet">
+
+        <!-- JS Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     </head>
 
-    <body>
-        
-        <!-- Insertar navbar -->
-        <?php
-        include 'plantillas/navbar.php'
-        ?>
-        <!-- Insertar navbar -->
-
-
-        <!-- Hero Start -->
-        <div class="hero">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="hero-text">
-                            <h1>Ana Leal prendas y vestidos</h1>
-                            <p>
-                                Registrate para navegar en nuestro amplio catalogo.
-                            </p>
-                            <a class="btn" href="https://htmlcodex.com/barber-shop-template">Comencemos</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 d-none d-md-block">
-                        
-                    </div>
-                </div>
-                <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                    <span></span>
+    <body style="padding-top: 80px;">
+        <header>  
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                <a class="navbar-brand pr-3" href="#" style="font-family: Bodoni FS; font-size: 45px;" >ANA LEAL</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#novedades" style="text-transform: uppercase;">Novedades</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#ocasion" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#oferta" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="#" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+  
+        </header>
+        <!-- Novedades -->
+        <div class="novedades" id="novedades">
+           <div class="hovereffect">
+                <img src="https://c.pxhere.com/photos/3d/e4/bride_marriage_wedding_dress_woman_girl_model_dress_fashion-979555.jpg!d" class="mx-auto d-block w-full" alt="image">
+                    <div class="overlay">
+                        <h2>Novedades</h2>
+                        <p>Explora los productos más recientes y nuevos.</p>
+                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                    </div>
+            </div>       
+        </div>
+
+        <!-- Ropa de boda -->
+        <div class="boda" id="boda">
+            <div class="hovereffect">
+                <img src="../Tiendaderopa/src/prendas/index-boda.jpg" class="mx-auto d-block w-100" alt="image">
+                    <div class="overlay">
+                        <h2>Ropa de boda</h2>
+                        <p>¿Tienes una boda o compromiso similar? Aquí encontrarás tu vestido ideal para la ocasión.</p>
+                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                    </div>
             </div>
         </div>
-        <!-- Hero End -->
 
-
-        <!-- Service Start -->
-        <div class="service">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Our Salon Services</p>
-                    <h2>Best Salon and Barber Services for You</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-1.jpg" alt="Image">
-                            </div>
-                            <h3>Hair Cut</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
-                        </div>
+        <!-- Ropa de ocasion -->
+        <div class="ocasion" id="ocasion">
+            <div class="hovereffect">
+                <img src="../Tiendaderopa/src/prendas/index-casual.jpeg" class="mx-auto d-block w-100" alt="image">
+                    <div class="overlay">
+                        <h2>Ropa de ocasión</h2>
+                        <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
+                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-2.jpg" alt="Image">
-                            </div>
-                            <h3>Beard Style</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-3.jpg" alt="Image">
-                            </div>
-                            <h3>Color & Wash</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <!-- Service End -->
-
-        <!-- Testimonial Start -->
-        <div class="testimonial">
-            <div class="container">
-                <div class="owl-carousel testimonials-carousel">
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat. Fusce venenatis at lectus in malesuada. Suspendisse sit amet dolor et odio varius mattis.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-2.jpg" alt="Image">
-                        <p>
-                            Phasellus pellentesque tempus pretium. Quisque in enim sit amet purus venenatis porttitor sed non velit. Vivamus vehicula finibus tortor. Aliquam vehicula molestie pulvinar. Sed varius libero in leo finibus, ac consectetur tortor rutrum.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-3.jpg" alt="Image">
-                        <p>
-                            Sed in lectus eu eros tincidunt cursus. Aliquam eleifend velit nisl. Sed et posuere urna, ut vestibulum massa. Integer quis magna non enim luctus interdum. Phasellus sed eleifend erat. Aliquam ligula ex, semper vel tempor pellentesque, pretium eu nulla.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-
-       
         
-    
-
-        <!-- Blog Start -->
-        <div class="blog">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Latest From Blog</p>
-                    <h2>Learn More from Latest Barber Blog</h2>
-                </div>
-                <div class="owl-carousel blog-carousel">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-1.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Hair Cut</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
+        <!-- Ropa en oferta -->
+        <div class="oferta" id="oferta">
+            <div class="hovereffect">
+                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fabeautifulmess.typepad.com%2F.a%2F6a00d8358081ff69e2016301db4217970d-800wi&f=1&nofb=1" class="mx-auto d-block w-100" alt="image">
+                    <div class="overlay">
+                        <h2>Ropa en oferta</h2>
+                        <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
+                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-2.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Beard Style</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-3.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Color & Wash</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-4.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Hair Cut</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-5.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Beard Style</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-6.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Color & Wash</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <!-- Blog End -->
 
-    <?php
-   include 'plantillas/footer.php'
-    ?>
+        <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
+            <div class="container">
+                <form action="">
+                <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                    <div class="col-auto">
+                        <p class="pt-2">
+                        <strong>Sign up for our newsletter</strong>
+                        </p>
+                    </div>
+                <!--Grid column-->
 
-    
+                <!--Grid column-->
+                    <div class="col-md-5 col-12">
+                    <!-- Email input -->
+                        <div class="form-outline form-white mb-4">
+                        <input type="email" id="mailforNewsletter" class="form-control" placeholder="Ingresa tu email"/>
+                        </div>
+                    </div>
+                <!--Grid column-->
 
+                <!--Grid column-->
+                    <div class="col-auto">
+                    <!-- Submit button -->
+                        <button type="submit" class="btn btn-outline-light mb-4">
+                        Subscribirse
+                        </button>
+                    </div>
+                <!--Grid column-->
+                    </div>
+                <!--Grid row-->
+                </form>
+
+            </div>
+            
+            <!-- Texto sobre los detalles del negocio o empresa -->
+            <div class="container">
+                <p style="text-align: center;">Descripción breve del negocio y sobre qué detalles tiene.</p>
+                <hr>
+            </div>
+
+            <!-- Texto sobre los links de contacto y otros links útiles -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto" id="ELFOOTER">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                    Contacto
+                </h6>
+                <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
+                <p><i class="fas fa-envelope me-3">analeal@example.xom</i></p>
+                <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
+                <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
+            </div>
+        </footer>
+        
     </body>
 </html>

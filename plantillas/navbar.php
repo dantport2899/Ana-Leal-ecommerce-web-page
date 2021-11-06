@@ -1,10 +1,7 @@
 <html>
 <head>
         <meta charset="utf-8">
-        <title>Barber X - Barber Shop Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -31,21 +28,18 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <h2>8:00 - 9:00</h2>
-                                <p>Opening Hour Mon - Fri</p>
+                                <p>Horarios de Lun - Vie</p>
                             </div>
                             <div class="text">
                                 <h2>+123 456 7890</h2>
-                                <p>Call Us For Appointment</p>
+                                <p>Teléfono de negocio</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="top-bar-right">
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
+                            <div class="social">  
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +51,7 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.php" class="navbar-brand">Ana Leal</a>
+                <a href="index.php" class="navbar-brand" style="font-family: Bodoni FS;"">ANA &nbsp;LEAL</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -78,7 +72,7 @@
                                 <a href="registro.php" class="dropdown-item">Registro</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Ayudas</a>
+                        <a href="contact.html" class="nav-item nav-link">Ayuda</a>
                     </div>
                 </div>
             </div>
