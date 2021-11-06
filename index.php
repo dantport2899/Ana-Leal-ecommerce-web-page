@@ -112,6 +112,7 @@
             </div>
         </div>
 
+        <!-- Inicio de Footer -->
         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">
                 <form action="">

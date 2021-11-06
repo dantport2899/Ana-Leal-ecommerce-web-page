@@ -39,19 +39,19 @@
                             <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#novedades" style="text-transform: uppercase;">Novedades</a>
+                            <a class="nav-link" href="cliente-index.php#novedades" style="text-transform: uppercase;">Novedades</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
+                            <a class="nav-link" href="cliente-index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#ocasion" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                            <a class="nav-link" href="cliente-index.php#ocasion" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
                         </li>
                         <li class="nav-item px4">
-                            <a class="nav-link" href="index.php#oferta" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                            <a class="nav-link" href="cliente-index.php#oferta" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
+                            <a class="nav-link" href="cliente-index.php#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
                         </li>
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
@@ -59,20 +59,16 @@
                                     @NOMBRE_USUARIO
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
+                                        <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="../index.php">Cerrar sesión</a></li>
                                     </ul>
                             </li>
                         </ul>
                         
                     </ul>
-                   <!--  <ul class="navbar-nav ml-auto mb-2 mb-md-0">
-                        <li class="nav-item px-2">
-                            <a class="nav-link" href="#" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
-                        </li>
-                    </ul> -->
+                    </ul> 
                 </div>
             </nav>
 
@@ -105,7 +101,7 @@
         <!-- Ropa de ocasion -->
         <div class="ocasion" id="ocasion">
             <div class="hovereffect">
-                <img src="./src/prendas/index-caual.jpg" class="mx-auto d-block w-100" alt="image">
+                <img src="../src/prendas/index-casual.jpeg" class="mx-auto d-block w-100" alt="image">
                     <div class="overlay">
                         <h2>Ropa de ocasión</h2>
                         <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
@@ -126,6 +122,7 @@
             </div>
         </div>
 
+        <!-- Inicio de Footer -->
         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">
                 <form action="">
@@ -134,7 +131,7 @@
                 <!--Grid column-->
                     <div class="col-auto">
                         <p class="pt-2">
-                        <strong>Sign up for our newsletter</strong>
+                        <strong>Suscríbete a nuestro newsletter</strong>
                         </p>
                     </div>
                 <!--Grid column-->
@@ -172,10 +169,10 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto" id="ELFOOTER">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                    Contact
+                    Contacto
                 </h6>
                 <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
-                <p><i class="fas fa-envelope me-3">analeal@example.xom</i></p>
+                <p><i class="fas fa-envelope me-3">&nbsp;analeal@example.com</i></p>
                 <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
                 <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
             </div>
