@@ -69,6 +69,7 @@ session_start();
                             <th class="th-description">Departamento</th>                            
                             <th class="th-description">Talla</th>
                             <th class="th-description">Color</th>
+                            <th class="th-description">Descuento aplicado</th>
                             <th class="text-right">Price</th>
                             <th class="th-description">Existencias</th>
                             <th class="text-right"></th>
@@ -95,6 +96,7 @@ session_start();
                         $estilo=$fila['idestilo'];
                         $existencias=$fila['existencias'];
                         $precio=$fila['precio'];
+                        $descuento=$fila['iddescuento'];
                                             
                         ?>
                         <tr>
@@ -107,7 +109,7 @@ session_start();
                                 </div>
                             </td>
                             <td class="td-name">
-                                <a href="#jacket"><?php echo $nombre ?></a>
+                                <a href=""><?php echo $nombre ?></a>
                            </td>
                             <td>
                                 <?php echo $descripcion ?>
@@ -136,6 +138,17 @@ session_start();
                             </td>
                             <td >
                                 <?php echo $color?>
+                            </td>
+                            <td >
+                                <?php 
+                                    require("../fun/connect_db.php");
+                                    $sql4="SELECT * FROM descuentos WHERE iddescuento=$descuento ";
+                                    $result4=mysqli_query($conexion,$sql4);
+
+                                    while ($descprodcuto=mysqli_fetch_array($result4)) {
+                                       echo $descprodcuto['nom_descuento'];
+                                    }
+                                ?>
                             </td>
                             <td class="td-number text-right">
                                 <small>$</small><?php echo $precio ?>
