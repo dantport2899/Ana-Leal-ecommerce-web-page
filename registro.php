@@ -67,7 +67,7 @@
         
         <!-- Registro Start -->
         
-        <div class="contact" style="margin-bottom: 90px;">
+        <div class="contact" style="margin-top: 150px;">
             <div class="container-fluid">
                 <div class="container">
                     <div class="row align-items-center">
@@ -104,7 +104,7 @@
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div>
-                                        <input class="btn" type="submit" id="sendMessageButton" class="submit" value="Registrarse">
+                                        <input class="btn btn-outline-dark" type="submit" id="sendMessageButton" class="submit" value="Registrarse">
                                         
                                     </div>
                                 </form>
