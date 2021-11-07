@@ -152,10 +152,62 @@ session_start();
         <?php } ?>
         </div>
         </div>
-        <!-- Insertar footer -->
-        <?php
-        include '../plantillas/footer.php'
-        ?>
-        <!-- Insertar footer -->
+        <br><br>
+         <!-- Inicio de Footer -->
+         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
+            <div class="container">
+                <form action="">
+                <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                    <div class="col-auto">
+                        <p class="pt-2">
+                        <strong>Suscríbete a nuestro newsletter</strong>
+                        </p>
+                    </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                    <div class="col-md-5 col-12">
+                    <!-- Email input -->
+                        <div class="form-outline form-white mb-4">
+                        <input type="email" id="mailforNewsletter" class="form-control" placeholder="Ingresa tu email"/>
+                        </div>
+                    </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                    <div class="col-auto">
+                    <!-- Submit button -->
+                        <button type="submit" class="btn btn-outline-light mb-4">
+                        Subscribirse
+                        </button>
+                    </div>
+                <!--Grid column-->
+                    </div>
+                <!--Grid row-->
+                </form>
+
+            </div>
+            
+            <!-- Texto sobre los detalles del negocio o empresa -->
+            <div class="container">
+                <p style="text-align: center;">Descripción breve del negocio y sobre qué detalles tiene.</p>
+                <hr>
+            </div>
+
+            <!-- Texto sobre los links de contacto y otros links útiles -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto" id="ELFOOTER">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                    Contacto
+                </h6>
+                <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
+                <p><i class="fas fa-envelope me-3">&nbsp;analeal@example.com</i></p>
+                <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
+                <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
+            </div>
+        </footer>
+        
     </body>
     </html>
