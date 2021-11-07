@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['correo']){
+if($_SESSION['email']){
     session_destroy();
 
 
@@ -12,5 +12,5 @@ if($_SESSION['correo']){
 
 
 }
-unset($_SESSION['user']);
+unset($_SESSION['email']);
  ?>

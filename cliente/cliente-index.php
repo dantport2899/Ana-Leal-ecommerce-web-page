@@ -67,7 +67,7 @@ session_start();
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
+                                        <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
                             </li>
                         </ul>
@@ -79,7 +79,7 @@ session_start();
                                 Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Ver Carrito</a></li>
+                                        <li><a class="dropdown-item"  href="carrito.php" >Ver Carrito</a></li>
                                         <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
                                     </ul>
                             </li>
@@ -153,7 +153,7 @@ session_start();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href='../index.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../fun/desconectar.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
                     </div>
                 </div>
             </div>

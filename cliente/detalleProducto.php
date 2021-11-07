@@ -105,7 +105,7 @@ else{
                                 Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Ver Carrito</a></li>
+                                        <li><a class="dropdown-item"  href="carrito.php" >Ver Carrito</a></li>
                                         <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
                                     </ul>
                             </li>
@@ -168,26 +168,55 @@ else{
             </div>
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
-              <select name="cantidad" id="cant">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-            <p><a href="cart.php" class="buy-now btn btn-sm btn-primary">+ Agregar al Carrito</a></p>
 
+
+              <form action="../fun/carritofun.php" method="POST">
+                <select name="cantidad" id="cant">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+                        <input type="hidden" name="nombre" value="<?php echo $fila[1];?>">
+                        <input type="hidden" name="descripcion" value="<?php echo $fila[10];?>">
+                        <input type="hidden" name="precio" value="<?php echo $fila[3];?>">
+                        <input type="hidden" name="imagen" value="<?php echo $imagen ?>">
+                </div>
+                <input type="submit"  class="buy-now btn btn-sm btn-primary" value="+ Agregar al Carrito">
+            
+            </form>
           </div>
         </div>
       </div>
     </div>
     <br><br><br><br><br><br>
+
+    <!-- Modal para cerrar sesión -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">¿Cerrar sesión?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cualquier pedido no confirmado se cancelará</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../fun/desconectar.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
    
    <!-- Inicio de Footer -->
    <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
