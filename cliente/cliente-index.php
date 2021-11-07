@@ -1,3 +1,8 @@
+<?php
+//cargar la sesion
+session_start();
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -56,13 +61,26 @@
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    @NOMBRE_USUARIO
+                                <?php echo $_SESSION['username']; ?>
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
+                                    </ul>
+                            </li>
+                        </ul>
+
+                        </li>
+                        <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
+                                </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Ver Carrito</a></li>
+                                        <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
                                     </ul>
                             </li>
                         </ul>
@@ -81,7 +99,7 @@
                     <div class="overlay">
                         <h2>Novedades</h2>
                         <p>Explora los productos más recientes y nuevos.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="novedades.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>       
         </div>
@@ -93,7 +111,7 @@
                     <div class="overlay">
                         <h2>Ropa de boda</h2>
                         <p>¿Tienes una boda o compromiso similar? Aquí encontrarás tu vestido ideal para la ocasión.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaboda.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -105,7 +123,7 @@
                     <div class="overlay">
                         <h2>Ropa de ocasión</h2>
                         <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaocasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -117,7 +135,7 @@
                     <div class="overlay">
                         <h2>Ropa en oferta</h2>
                         <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="#" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaoferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
