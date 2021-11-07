@@ -19,29 +19,49 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        
     </head>
 
     <body>
         <!-- Insertar navbar -->
-        <?php
-        include 'plantillas/navbar.php'
-        ?>
-        <!-- Insertar navbar -->
-
-         <!-- Page Header Start -->
-         <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Registro de Usuario</h2>
-                    </div>
-                    
+        <header>  
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                <a class="navbar-brand pr-3" href="#" style="font-family: Bodoni FS; font-size: 45px;" >ANA LEAL</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#novedades" style="text-transform: uppercase;">Novedades</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#ocasion" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#oferta" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="index.php#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto mb-2 mb-md-0">
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="../Tiendaderopa/login.php" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
+            </nav>
+
+  
+        </header>
         <!-- Page Header End -->
 
         
@@ -95,13 +115,6 @@
             </div>
         </div>
         <!-- Contact End -->
-
-        <!-- Insertar footer -->
-        <?php
-        include 'plantillas/footer.php'
-        ?>
-        <!-- Insertar footer -->
-
     </body>
 
 </html>
