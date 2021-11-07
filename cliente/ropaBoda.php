@@ -84,7 +84,7 @@ session_start();
                                 Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Ver Carrito</a></li>
+                                        <li><a class="dropdown-item" href="carrito.php" >Ver Carrito</a></li>
                                         <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
                                     </ul>
                             </li>
@@ -145,6 +145,26 @@ session_start();
         </div>
 
         <br><br>
+
+        <!-- Modal para cerrar sesión -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">¿Cerrar sesión?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cualquier pedido no confirmado se cancelará</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../fun/desconectar.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Inicio de Footer -->
         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">

@@ -5,19 +5,7 @@
 session_start();
 
 include('../fun/connect_db.php');
-if(isset($_GET['id'])){
-$resultado = $conexion -> query("select * from prendas where idprenda=".$_GET['id'])or die($conexion->error);
-  if(mysqli_num_rows($resultado)>0){
-    $fila = mysqli_fetch_row($resultado);
-    $imagen = $fila[9];
-  }else{
-    header("Location: ../home-cliente.php");
-  }
-}
-else{
-  //redireccionar
-  header("Location: ../home-cliente.php");
-}
+
 ?>
 
 
@@ -43,11 +31,15 @@ else{
         <link href="../lib/animate/animate.min.css" rel="stylesheet">
         <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!-- Template Stylesheet -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- <link href="css/style.css" rel="stylesheet"> -->
         <link href="../css/hoverimages.css" rel="stylesheet">
+        
 
         <!-- JS Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -67,7 +59,7 @@ else{
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
+                            <a class="nav-link "  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link " href="ropanovedades.php" style="text-transform: uppercase;">Novedades</a>
@@ -101,7 +93,7 @@ else{
                         </li>
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle active" aria-current="page" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -118,66 +110,126 @@ else{
             <br><br><br><br><br><br><br>
         <!-- Insertar navbar -->
 
-          <div class="page-header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="hero-text">
-                            <h1>Ana Leal prendas y vestidos</h1>
+        <?php
+          if (!empty($_SESSION['CARRITO']))
+          {
+
+       ?>
+
+<div class="col-lg-12 col-md-12 ml-auto mr-auto">
+                <div class="table-responsive">
+                <table class="table table-shopping">
+                    <thead>
+                        <tr>
                             
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                            <th class="text-center"></th>
+                            <th>Prenda</th>
+                            <th class="th-description">Descripcion</th>
+                            <th class="th-description">Color</th>
+                            <th class="th-description text-right">Tamano</th>
+                            <th class="text-center">Precio</th>
+                            <th class="th-description">Cantidad</th>
+                            <th class="text-center">Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                            $total=0;
+                            foreach ($_SESSION['CARRITO'] as $indice=>$producto) {?>
+          
+                        <tr>
+                            <td class="td-number text-center">
+                            <?php echo $producto['ID']; ?>
+                            </td>
+                            <td>
+                                <div class="img-container">
+                                    <img src="<?php echo $producto['IMAGEN']; ?>" width = "100" height = "100" alt="...">
+                                </div>
+                            </td>
+                            <td class="td-name">
+                                <a ><?php echo $producto['NOMBRE']; ?></a>
+                               
+                            </td>
+                            <td>
+                               Azul
+                            </td>
+                            <td class="text-center">
+                                MedianO
+                            </td>
+                            <td class="td-number text-center">
+                                $<STrong><?php echo $producto['PRECIO']; ?></STrong>
+                            </td>
+                            <td class="td-number">
+                                <?php echo $producto['CANTIDAD']; ?>
+                                <div class="btn-group">
+                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Remover</i> </button>
+                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Agregar</i> </button>
+                                </div>
+                            </td>
+                            <td class="td-number text-center">
+                                $<STrong><?php echo $producto['PRECIO'] * $producto['CANTIDAD']; ?></STrong>
+                            </td>
+                            <td class="td-actions">
+                                <form action="../fun/carritoeliminar.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $producto['ID']; ?>">
+                                    <button type="submit" rel="tooltip" data-placement="left" title="" class="btn btn-link" data-original-title="Remove item">
+                                        <i class="material-icons">Eliminar</i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
                         
-                    </div>
+                    </tbody>
+                </table>
                 </div>
+    
             </div>
-          </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="<?php echo $imagen ?>" alt="<?php echo $fila[1];?>" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-            <h2 class="text-black"><?php echo $fila[1];?></h2>
-            <p><?php echo $fila[10];?></p>
-            <p><strong class="text-primary h4">$<?php echo $fila[3];?></strong></p>
-            <div class="mb-1 d-flex">
-              <p>Stock: <?php echo $fila[11];?></p>
-            </div>
-            <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 120px;">
+        <!-- Insertar tabla -->
 
+        
+            <?php
+                if (!empty($_SESSION['CARRITO']))
+                {
+                $total=0;
+                foreach ($_SESSION['CARRITO'] as $indice=>$producto) {
+                    $total=$total+($producto['CANTIDAD']*$producto['PRECIO']);
+                    }
+                } ?>
 
-              <form action="../fun/carritofun.php" method="POST">
-                <select name="cantidad" id="cant">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-
-                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                        <input type="hidden" name="nombre" value="<?php echo $fila[1];?>">
-                        <input type="hidden" name="descripcion" value="<?php echo $fila[10];?>">
-                        <input type="hidden" name="precio" value="<?php echo $fila[3];?>">
-                        <input type="hidden" name="imagen" value="<?php echo $imagen ?>">
-                </div>
-                <input type="submit"  class="buy-now btn btn-sm btn-primary" value="+ Agregar al Carrito">
+            <div class="jumbotron" text-center>
             
-            </form>
-          </div>
+            <p class="lead">Estas a punto de pagar la cantidad de:</p>
+            <h4>$<?php  echo number_format($total,2);?></h4>
+            <hr>
+            <h4>Productos encargados</h4>
+            <?php   if (!empty($_SESSION['CARRITO']))
+                { foreach ($_SESSION['CARRITO'] as $indice=>$producto) {?>
+            <p class="lead"><?php echo $producto['NOMBRE']; ?> x <?php echo $producto['CANTIDAD']; ?> : $<?php echo number_format($producto['CANTIDAD']*$producto['PRECIO'],2);?></p>
+            <?php }} ?>
+
+            <hr>
+            <p class="lead">Direccion de entrega : <?php echo  $_SESSION['direccion']?></p>
+            <hr>
+            
+            </div>
+
+
+        
+
+        <!-- si el carrito esta vacio mostrar esto -->
+            <?php }else { ?>
+        <div class="aler alert-success">
+            No hay productos en el carrito...
         </div>
-      </div>
-    </div>
+
+        <?php } ?>
+
+
+
     <br><br><br><br><br><br>
 
     <!-- Modal para cerrar sesión -->
@@ -199,62 +251,7 @@ else{
             </div>
         </div>
    
-   <!-- Inicio de Footer -->
-   <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
-            <div class="container">
-                <form action="">
-                <!--Grid row-->
-                    <div class="row d-flex justify-content-center">
-                <!--Grid column-->
-                    <div class="col-auto">
-                        <p class="pt-2">
-                        <strong>Suscríbete a nuestro newsletter</strong>
-                        </p>
-                    </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                    <div class="col-md-5 col-12">
-                    <!-- Email input -->
-                        <div class="form-outline form-white mb-4">
-                        <input type="email" id="mailforNewsletter" class="form-control" placeholder="Ingresa tu email"/>
-                        </div>
-                    </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                    <div class="col-auto">
-                    <!-- Submit button -->
-                        <button type="submit" class="btn btn-outline-light mb-4">
-                        Subscribirse
-                        </button>
-                    </div>
-                <!--Grid column-->
-                    </div>
-                <!--Grid row-->
-                </form>
-
-            </div>
-            
-            
-            <!-- Texto sobre los detalles del negocio o empresa -->
-            <div class="container">
-                <p style="text-align: center;">Descripción breve del negocio y sobre qué detalles tiene.</p>
-                <hr>
-            </div>
-
-            <!-- Texto sobre los links de contacto y otros links útiles -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto" id="ELFOOTER">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                    Contacto
-                </h6>
-                <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
-                <p><i class="fas fa-envelope me-3">&nbsp;analeal@example.com</i></p>
-                <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
-                <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
-            </div>
-        </footer>
+   
         
       
   </body>
