@@ -56,7 +56,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="../Tiendaderopa/login.php" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
+                            <a class="nav-link" href="login.php" style="text-transform: uppercase;">Iniciar&nbsp;sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -79,11 +79,11 @@
         <!-- Ropa de boda -->
         <div class="boda" id="boda">
             <div class="hovereffect">
-                <img src="../Tiendaderopa/src/prendas/index-boda.jpg" class="mx-auto d-block w-100" alt="image">
+                <img src="src/prendas/index-boda.jpg" class="mx-auto d-block w-100" alt="image">
                     <div class="overlay">
                         <h2>Ropa de boda</h2>
                         <p>¿Tienes una boda o compromiso similar? Aquí encontrarás tu vestido ideal para la ocasión.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaboda.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaBoda.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -91,11 +91,11 @@
         <!-- Ropa de ocasion -->
         <div class="ocasion" id="ocasion">
             <div class="hovereffect">
-                <img src="../Tiendaderopa/src/prendas/index-casual.jpeg" class="mx-auto d-block w-100" alt="image">
+                <img src="src/prendas/index-casual.jpeg" class="mx-auto d-block w-100" alt="image">
                     <div class="overlay">
                         <h2>Ropa de ocasión</h2>
                         <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaocasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaOcasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     <div class="overlay">
                         <h2>Ropa en oferta</h2>
                         <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaoferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaOferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
