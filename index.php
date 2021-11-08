@@ -83,7 +83,7 @@
                     <div class="overlay">
                         <h2>Ropa de boda</h2>
                         <p>¿Tienes una boda o compromiso similar? Aquí encontrarás tu vestido ideal para la ocasión.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaBoda.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaboda.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                     <div class="overlay">
                         <h2>Ropa de ocasión</h2>
                         <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaOcasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaocasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     <div class="overlay">
                         <h2>Ropa en oferta</h2>
                         <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaOferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaoferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>
         </div>
