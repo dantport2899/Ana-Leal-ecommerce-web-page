@@ -8,6 +8,8 @@ session_start();
    $precio = $_POST['precio'];
    $imagen = $_POST['imagen'];
    $cantidad = $_POST['cantidad'];
+   $color = $_POST['color'];
+   $talla = $_POST['talla'];
    
 
    if(!isset($_SESSION['CARRITO']))
@@ -18,7 +20,9 @@ session_start();
        'CANTIDAD'=>$cantidad,
        'PRECIO'=>$precio,
        'DESCRIPCION'=>$descripcion,
-       'IMAGEN'=>$imagen
+       'IMAGEN'=>$imagen,
+       'COLOR'=>$color,
+       'TALLA'=>$talla
      );
 
      $_SESSION['CARRITO'][0]=$producto;
@@ -43,7 +47,9 @@ session_start();
          'CANTIDAD'=>$cantidad,
          'PRECIO'=>$precio,
          'DESCRIPCION'=>$descripcion,
-         'IMAGEN'=>$imagen
+         'IMAGEN'=>$imagen,
+         'COLOR'=>$color,
+         'TALLA'=>$talla
        );
        $_SESSION['CARRITO'][$NumeroProductos]=$producto;
        echo '<script>alert("Se agrego el producto al carrito de compras")</script>';
