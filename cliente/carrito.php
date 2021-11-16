@@ -141,7 +141,7 @@ include('../fun/connect_db.php');
           
                         <tr>
                             <td class="td-number text-center">
-                            <?php echo $producto['ID']; ?>
+                           
                             </td>
                             <td>
                                 <div class="img-container">
@@ -153,10 +153,10 @@ include('../fun/connect_db.php');
                                
                             </td>
                             <td>
-                               Azul
+                                <?php echo $producto['COLOR']; ?>
                             </td>
                             <td class="text-center">
-                                MedianO
+                                <?php echo $producto['TALLA']; ?>
                             </td>
                             <td class="td-number text-center">
                                 $<STrong><?php echo $producto['PRECIO']; ?></STrong>

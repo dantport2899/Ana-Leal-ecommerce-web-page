@@ -163,11 +163,11 @@ session_start();
                                     echo $fila['precio']-($fila['precio']*$desc); 
                                 }   
                                
-                            ?></strong>
+                            ?></strong> <strike><?php echo $fila['precio'] ?></strike>
                             </p>
-                            <br>
+                        
                             <p><strong> <?php echo $porcentajenombre ?>!!!</strong></p>
-                            <p>Antes en: <?php echo $fila['precio'] ?></p>
+                            
                             <a class="btn" href="">+ Agregar al carrito</a>
                             
                         </div>

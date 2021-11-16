@@ -137,21 +137,7 @@ else{
         </div>
         <!-- Insertar navbar -->
 
-          <div class="page-header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="hero-text">
-                            <h1>Ana Leal prendas y vestidos</h1>
-                            
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 d-none d-md-block">
-                        
-                    </div>
-                </div>
-            </div>
-          </div>
+          
 
     <div class="site-section">
       <div class="container">
@@ -162,33 +148,96 @@ else{
           <div class="col-md-6">
             <h2 class="text-black"><?php echo $fila[1];?></h2>
             <p><?php echo $fila[10];?></p>
-            <p><strong class="text-primary h4">$<?php echo $fila[3];?></strong></p>
+            <p>
+                <?php
+                $descuento=$fila[12];
+
+                if($descuento>1){ 
+                    $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
+                                while($fila2 = mysqli_fetch_array($resultado2)){
+                                    $porcentaje=$fila2['descuento'];
+                                    $porcentajenombre=$fila2['nom_descuento'];
+                                    $desc=$porcentaje/100;
+                                    $preciofinal=$fila[3]-($fila[3]*$desc);
+                              
+                ?>
+
+                    <strong class="text-primary h4">$<?php echo $preciofinal; ?></strong>
+                    <strike>$<?php echo $fila[3] ?></strike> <?php echo $porcentajenombre ?>
+                <?php }}else{ 
+                    $preciofinal=$fila[3];
+                ?>
+                    <strong class="text-primary h4">$<?php echo $preciofinal ?></strong>
+                <?php } ?>
+            </p>
             <div class="mb-1 d-flex">
-              <p>Stock: <?php echo $fila[11];?></p>
+              <p><strong>Stock:</strong> <?php echo $fila[11];?></p>
             </div>
+            <p>
+                <?php
+                        require("../fun/connect_db.php");
+                        $sql2="SELECT * FROM departamento WHERE iddepartamento='$fila[4]'";
+                        $result2=mysqli_query($conexion,$sql2);
+
+                        while ($dep=mysqli_fetch_array($result2)) {
+                            echo $dep['nom_departamento'];
+                        }
+                ?>
+
+            </p>
+            <p><strong>Talla:</strong>
+                <?php
+                         require("../fun/connect_db.php");
+                         $sql3="SELECT * FROM talla WHERE idtalla='$fila[2]' ";
+                         $result3=mysqli_query($conexion,$sql3);
+
+                         while ($tallaprodcuto=mysqli_fetch_array($result3)) {
+                            $talla=$tallaprodcuto['nom_talla'];
+                            echo $talla;
+                         }
+                ?>
+
+            </p>
+            <p><strong>Material:</strong>
+                <?php
+                         require("../fun/connect_db.php");
+                         $sql4="SELECT * FROM material WHERE idmaterial='$fila[6]' ";
+                         $result4=mysqli_query($conexion,$sql4);
+
+                         while ($materialprodcuto=mysqli_fetch_array($result4)) {
+                            echo $materialprodcuto['nom_material'];
+                         }
+                ?>
+
+            </p>
+            <p><strong>Color:</strong>
+                <?php
+                            echo $fila[5];                       
+                ?>
+
+            </p>
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
 
 
               <form action="../fun/carritofun.php" method="POST">
                 <select name="cantidad" id="cant">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <?php
+                    for($i=1;$i<=$fila[11];$i++){
+                    ?>
+                        <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
 
                         <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                         <input type="hidden" name="nombre" value="<?php echo $fila[1];?>">
                         <input type="hidden" name="descripcion" value="<?php echo $fila[10];?>">
-                        <input type="hidden" name="precio" value="<?php echo $fila[3];?>">
+                        <input type="hidden" name="precio" value="<?php echo $preciofinal;?>">
                         <input type="hidden" name="imagen" value="<?php echo $imagen ?>">
+                        <input type="hidden" name="color" value="<?php echo $fila[5] ?>">
+                        <input type="hidden" name="talla" value="<?php echo $talla;?>">
                 </div>
                 <input type="submit"  class="buy-now btn btn-sm btn-primary" value="+ Agregar al Carrito">
             
