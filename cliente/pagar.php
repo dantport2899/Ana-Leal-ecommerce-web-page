@@ -31,20 +31,21 @@ include('../fun/connect_db.php');
         <link href="../lib/animate/animate.min.css" rel="stylesheet">
         <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!-- Template Stylesheet -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- <link href="css/style.css" rel="stylesheet"> -->
         <link href="../css/hoverimages.css" rel="stylesheet">
-        
 
         <!-- JS Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    
+
+        <!--paypal -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
   </head>
   <body>
   
@@ -59,7 +60,7 @@ include('../fun/connect_db.php');
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link "  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
+                            <a class="nav-link active" aria-current="page"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link " href="ropanovedades.php" style="text-transform: uppercase;">Novedades</a>
@@ -93,7 +94,7 @@ include('../fun/connect_db.php');
                         </li>
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle active" aria-current="page" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" style="text-transform: uppercase;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Carrito[<?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?>]
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -108,142 +109,92 @@ include('../fun/connect_db.php');
                 </div>
             </nav>
             <br><br><br><br><br><br><br>
+
+            <!-- Modal para cerrar sesión -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">¿Cerrar sesión?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cualquier pedido no confirmado se cancelará</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../index.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Insertar navbar -->
 
+
         <?php
-          if (!empty($_SESSION['CARRITO']))
-          {
+            if($_POST)
+            {
+                $total=0;
+                $SID=$_SESSION['idusuario'];
+                $correo=$_POST['email'];
+                $clavetrnsaccion="ssdadasf";
+                $descripcion="descripcion";
+                $direccion=$_POST['direccion'];
 
-       ?>
 
-<div class="col-lg-12 col-md-12 ml-auto mr-auto">
-                <div class="table-responsive">
-                <table class="table table-shopping">
-                    <thead>
-                        <tr>
-                            
-                            <th class="text-center"></th>
-                            <th>Prenda</th>
-                            <th class="th-description">Descripcion</th>
-                            <th class="th-description">Color</th>
-                            <th class="th-description text-right">Tamano</th>
-                            <th class="text-center">Precio</th>
-                            <th class="th-description">Cantidad</th>
-                            <th class="text-center">Total</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                foreach ($_SESSION['CARRITO'] as $indice=>$producto) 
+                {
+                    $total=$total+($producto['CANTIDAD']*$producto['PRECIO']);
+                }
 
-                        <?php
-                            $total=0;
-                            foreach ($_SESSION['CARRITO'] as $indice=>$producto) {?>
+                $sql="INSERT INTO `pedidos` (`idpedidos`, `clavetransaccion`, `paypaldatos`, `idusuario`, `correo`, `total`, `fecha`, `descripcion`, `direccion`, `status`) 
+                VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), '$descripcion', '$direccion', 'PENDIENTE')" ;
+
+                $result=mysqli_query($conexion, $sql);
+
+                $ultimoID = $conexion->insert_id;
+
+                foreach ($_SESSION['CARRITO'] as $indice=>$producto) 
+                {
+                    $sql2="INSERT INTO `carrito` (`idcarrito`, `idpedido`, `idprenda`, `preciounitario`, `cantidad`, `vendido`) 
+                    VALUES (NULL, '$ultimoID', '".$producto['ID']."', '".$producto['PRECIO']."', '".$producto['CANTIDAD']."', '0')";
+                    $result2=mysqli_query($conexion, $sql2);
+                    
+                }
+                
+            }
+        ?>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">¡Paso final!</h1>
+        <hr class="my-4">
+        <p class="lead"> Estas a punto de pagar con paypal la cantidad de: 
+            <h4>$<?php echo number_format($total,2)?></h4>
+            <div id="paypal-button-container"></div>
+
+        </p>
+        
+        <p>Los productos seran enviados una vez se procese el pago<br>
+            <strong>(Para aclaraciones contactarnos por nuestros correos o redes sociales)</strong>
+        </p>
+        
+                <!-- Set up a container element for the button -->
+           
+            
+
+            <script>
+            // Render the PayPal button into #paypal-button-container
+            paypal.Buttons().render('#paypal-button-container');
+            </script>
+        
+    </div>
+
           
-                        <tr>
-                            <td class="td-number text-center">
-                           
-                            </td>
-                            <td>
-                                <div class="img-container">
-                                    <img src="<?php echo $producto['IMAGEN']; ?>" width = "100" height = "100" alt="...">
-                                </div>
-                            </td>
-                            <td class="td-name">
-                                <a ><?php echo $producto['NOMBRE']; ?></a>
-                               
-                            </td>
-                            <td>
-                                <?php echo $producto['COLOR']; ?>
-                            </td>
-                            <td class="text-center">
-                                <?php echo $producto['TALLA']; ?>
-                            </td>
-                            <td class="td-number text-center">
-                                $<STrong><?php echo $producto['PRECIO']; ?></STrong>
-                            </td>
-                            <td class="td-number">
-                                <?php echo $producto['CANTIDAD']; ?>
-                                <div class="btn-group">
-                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Remover</i> </button>
-                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Agregar</i> </button>
-                                </div>
-                            </td>
-                            <td class="td-number text-center">
-                                $<STrong><?php echo $producto['PRECIO'] * $producto['CANTIDAD']; ?></STrong>
-                            </td>
-                            <td class="td-actions">
-                                <form action="../fun/carritoeliminar.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $producto['ID']; ?>">
-                                    <button type="submit" rel="tooltip" data-placement="left" title="" class="btn btn-link" data-original-title="Remove item">
-                                        <i class="material-icons">Eliminar</i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php } ?>
 
-                    <tr>
-                    <?php
-                        if (!empty($_SESSION['CARRITO']))
-                        {
-                        $total=0;
-                        foreach ($_SESSION['CARRITO'] as $indice=>$producto) {
-                            $total=$total+($producto['CANTIDAD']*$producto['PRECIO']);
-                            }
-                        } ?>
-
-                        <td colspan="6" align="right"><h3>Total</h3></td>
-                        <td colspan="2" align="right"><h3>$<?php  echo number_format($total,2);?></h3></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="9">
-                            
-                        <form action="pagar.php" method="POST">
-                            <div class="alert alert-success">
-                                <div class="form-group">
-                                <label for="my-imput"></label>
-                                <input id="email" name="email" class="form-control" type="email" placeholder="Por favor ingresa tu correo" required>
-                                <br>
-                                
-                                <input id="direccion" name="direccion" class="form-control" type="text" placeholder="Por favor ingresa tu Direccion" required>
-
-
-                                </div>
-                                <small id="emailHelp" class="form-text text-muted">
-                                    Los productos se enviaran a esta direccion
-                                </small>
-                            </div>
-                            <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAction" value="proceder">
-                                Proceder a pagar >>
-                            </button>
-                            
-                        </form>
-                        </td>
-                    </tr>
-                        
-                    </tbody>
-                </table>
-                </div>
-    
-            </div>
-
-        <!-- Insertar tabla -->
-
-        
-
-        
-
-        <!-- si el carrito esta vacio mostrar esto -->
-            <?php }else { ?>
-        <div class="aler alert-success">
-            No hay productos en el carrito...
-        </div>
-
-        <?php } ?>
-
-
-
+  
     <br><br><br><br><br><br>
 
     <!-- Modal para cerrar sesión -->
@@ -265,7 +216,62 @@ include('../fun/connect_db.php');
             </div>
         </div>
    
-   
+   <!-- Inicio de Footer -->
+   <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
+            <div class="container">
+                <form action="">
+                <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                    <div class="col-auto">
+                        <p class="pt-2">
+                        <strong>Suscríbete a nuestro newsletter</strong>
+                        </p>
+                    </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                    <div class="col-md-5 col-12">
+                    <!-- Email input -->
+                        <div class="form-outline form-white mb-4">
+                        <input type="email" id="mailforNewsletter" class="form-control" placeholder="Ingresa tu email"/>
+                        </div>
+                    </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                    <div class="col-auto">
+                    <!-- Submit button -->
+                        <button type="submit" class="btn btn-outline-light mb-4">
+                        Subscribirse
+                        </button>
+                    </div>
+                <!--Grid column-->
+                    </div>
+                <!--Grid row-->
+                </form>
+
+            </div>
+            
+            
+            <!-- Texto sobre los detalles del negocio o empresa -->
+            <div class="container">
+                <p style="text-align: center;">Descripción breve del negocio y sobre qué detalles tiene.</p>
+                <hr>
+            </div>
+
+            <!-- Texto sobre los links de contacto y otros links útiles -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto" id="ELFOOTER">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                    Contacto
+                </h6>
+                <p><i class="fas fa-home me-3"></i> Dirección del negocio</p>
+                <p><i class="fas fa-envelope me-3">&nbsp;analeal@example.com</i></p>
+                <p><i class="fas fa-phone me-3"></i> Numero de teléfono</p>
+                <p><i class="fab fa-facebook me-3"></i> Página de Facebook</p>
+            </div>
+        </footer>
         
       
   </body>
