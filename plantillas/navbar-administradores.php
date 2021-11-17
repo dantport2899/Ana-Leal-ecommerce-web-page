@@ -68,7 +68,7 @@
                         <a href="inventario.php" class="nav-item nav-link">Inventario</a>
                         <a href="service.html" class="nav-item nav-link">Pedidos</a>
                         <a href="descuentos.php" class="nav-item nav-link">Descuentos</a>
-                        <a href="team.html" class="nav-item nav-link">Calendario</a>
+                        <a href="calendario.php" class="nav-item nav-link">Calendario</a>
                         <a href="portfolio.html" class="nav-item nav-link">FAQ</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?></a>
