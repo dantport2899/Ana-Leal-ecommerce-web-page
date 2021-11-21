@@ -55,7 +55,7 @@ if($state=="approved")
 {
 
     $sql="UPDATE `pedidos` 
-    SET `paypaldatos` = '$RespuestaVenta', `status` = 'APROVADO' 
+    SET `paypaldatos` = '$RespuestaVenta', `clavetransaccion` = '$AccesToken' ,`status` = 'Aprovado' 
     WHERE `pedidos`.`idpedidos` = '$claveventa';" ;
 
     $result=mysqli_query($conexion, $sql);

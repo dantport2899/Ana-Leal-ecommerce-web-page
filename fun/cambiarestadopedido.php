@@ -93,9 +93,11 @@ session_start();
                                 </div>
 
                                 <select name="estado" id="status">
-                                    <option value="No aceptado">No aceptado</option>
+                                    <option value="Cancelado">Cancelado</option>
                                     <option value="Pendiente">Pendiente</option>
-                                    <option value="Aceptado">Aceptado</option>
+                                    <option value="Aprovado">Aprovado</option>
+                                    <option value="En transito">En transito</option>                                 
+                                    <option value="Entregado">Entregado</option>
                                 </select>
                                 
                                 <div class="about-text">

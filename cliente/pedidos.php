@@ -138,6 +138,7 @@ include('../fun/connect_db.php');
                              while ($fila=mysqli_fetch_array($result)) {
                                  $idpedido=$fila['idpedidos'];
                                  $fechacompra=$fila['fecha'];
+                                 $fechaentrega=$fila['fechaentrega'];
                                  $status=$fila['status'];
 
                                 $sql2="SELECT * FROM carrito where idpedido=$idpedido";
@@ -188,12 +189,37 @@ include('../fun/connect_db.php');
                                 Productos: <?php echo $cantidad; ?>
                             </td>
                             <td class="td-number">
-                                <?php echo $fechacompra; ?>
-            
+                                <?php 
+                                if($status=="En transito")
+                                {
+                                    echo $fechacompra. "/ Entrega aprox: " .$fechaentrega; 
+                                }else{
+                                    echo $fechacompra; 
+                                }
+                                ?>
+
                             </td>
                             <td class="td-name">
-                                <a ><?php echo $status; ?></a>
-                               
+                                <?php if($status=="Cancelado"){?>
+                                    <font color="red"><?php echo $status; }?></font>
+                                <?php} ?>
+
+                                <?php if($status=="Pendiente"){?>
+                                    <font color="olive"><?php echo $status; }?></font>
+                                <?php} ?>
+
+                                <?php if($status=="Aprovado"){?>
+                                    <font color="lime"><?php echo $status; }?></font>
+                                <?php} ?>
+
+                                <?php if($status=="En transito"){?>
+                                    <font color="green"><?php echo $status; }?></font>
+                                <?php} ?>
+
+                                <?php if($status=="Entregado"){?>
+                                    <font color="blue"><?php echo $status; }?></font>
+                                <?php} ?>
+
                             </td>
 
                             

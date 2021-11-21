@@ -45,7 +45,7 @@ session_start();
                         <h2>Pedidos pendientes</h2>
                     </div>
                     <div class="col-12">
-                        <a href="nuevaprenda.php">Aceptar pedidos</a>
+                        <a>Aceptar pedidos</a>
                         
                     </div>
                 </div>
@@ -102,7 +102,26 @@ session_start();
                                 <?php echo $descripcion ?>
                             </td>
                             <td>
-                                <?php echo $estado ?>
+                              
+                                <?php if($estado=="Cancelado"){?>
+                                    <font color="red"><?php echo $estado; }?></font>
+                                <?php} ?>
+
+                                <?php if($estado=="Pendiente"){?>
+                                    <font color="olive"><?php echo $estado; }?></font>
+                                <?php} ?>
+
+                                <?php if($estado=="Aprovado"){?>
+                                    <font color="lime"><?php echo $estado; }?></font>
+                                <?php} ?>
+
+                                <?php if($estado=="En transito"){?>
+                                    <font color="green"><?php echo $estado; }?></font>
+                                <?php} ?>
+
+                                <?php if($estado=="Entregado"){?>
+                                    <font color="blue"><?php echo $estado; }?></font>
+                                <?php} ?>
                             </td>
                             <td>
                                 <?php echo $fecha ?>

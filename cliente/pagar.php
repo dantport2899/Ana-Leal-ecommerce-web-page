@@ -155,7 +155,7 @@ include('../fun/paypalconfig.php');
                 $descripcion="El usuario: " .$usuario. " compro " .$i. " productos";
 
                 $sql="INSERT INTO `pedidos` (`idpedidos`, `clavetransaccion`, `paypaldatos`, `idusuario`, `correo`, `total`, `fecha`, `fechaentrega`, `descripcion`, `direccion`, `status`) 
-                VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), NULL, '$descripcion', '$direccion', 'PENDIENTE')" ;
+                VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), NULL, '$descripcion', '$direccion', 'Pendiente')" ;
 
                 $result=mysqli_query($conexion, $sql);
                 if($result)
