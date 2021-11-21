@@ -60,7 +60,7 @@
                     <div class="navbar-nav ml-auto">
                         <a href="index.php" class="nav-item nav-link active">Inicio</a>
                         <a href="about.html" class="nav-item nav-link">Novedades</a>
-                        <a href="service.html" class="nav-item nav-link">Ropa de boda</a>
+                        <a href="pedidos.php" class="nav-item nav-link">Ropa de boda</a>
                         <a href="price.html" class="nav-item nav-link">Ropa de ocasión</a>
                         <a href="team.html" class="nav-item nav-link">Ropa en oferta</a>
                         <a href="portfolio.html" class="nav-item nav-link">Contactanos</a>

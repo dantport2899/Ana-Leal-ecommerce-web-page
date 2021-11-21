@@ -118,8 +118,14 @@ session_start();
                                     <input type="hidden" name="idd" value="<?php echo $id?>">
                                     <button class="btn btn-access" type="submit" name="btnAction" value="Modiciar">Cambiar estado del pedido</button>
                                 </form>
+
+                                <form action="../fun/cambiarfechapedido.php" method="post">
+                                    <input type="hidden" name="idd" value="<?php echo $id?>">
+                                    <button class="btn btn-access" type="submit" name="btnAction" value="Modiciar">Cambiar fecha del pedido</button>
+                                </form>
+
                                 <form action="../fun/eliminarpedido.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $id?>">
+                                <input type="hidden" name="idpedidos" value="<?php echo $id?>">
                                     <input type="hidden" name="descripcion" value="<?php echo $descripcion ?>">
 
                                     <button width="300px" class="btn btn-danger" type="submit" name="btnAction" value="Eliminar ">Eliminar pedido</button>
@@ -144,5 +150,3 @@ session_start();
         <!-- Insertar footer -->
 
     </body>
-
-</html>
