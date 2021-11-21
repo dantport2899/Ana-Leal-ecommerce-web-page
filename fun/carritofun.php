@@ -57,5 +57,5 @@ session_start();
 
      }
    }
- echo "<script>location.href='../cliente/cliente-index.php'</script>";
+ echo "<script>location.href='../cliente/carrito.php'</script>";
   ?>

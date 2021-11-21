@@ -66,9 +66,7 @@ include('../fun/paypalconfig.php');
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
-                        <li class="nav-item px-4">
-                            <a class="nav-link " href="ropanovedades.php" style="text-transform: uppercase;">Novedades</a>
-                        </li>
+                        
                         <li class="nav-item px-4">
                             <a class="nav-link " href="ropaboda.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
@@ -79,7 +77,7 @@ include('../fun/paypalconfig.php');
                             <a class="nav-link" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="contactanos.php" style="text-transform: uppercase;">Contáctanos</a>
+                            <a class="nav-link" href="#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
                         </li>
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
@@ -87,7 +85,7 @@ include('../fun/paypalconfig.php');
                                 <?php echo $_SESSION['username']; ?>
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
+                                        <li><a class="dropdown-item" href="usuario.php">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="pedidos.php">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
@@ -103,7 +101,7 @@ include('../fun/paypalconfig.php');
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item"  href="carrito.php" >Ver Carrito</a></li>
-                                        <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
+                                        <li><a class="dropdown-item" href="../fun/vaciarcarrito.php">Limpiar carrito</a></li>
                                     </ul>
                             </li>
                         </ul>

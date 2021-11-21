@@ -2,12 +2,28 @@
 //cargar la sesion
 session_start();
 
+$id=$_SESSION['idusuario'];
+
+include('../fun/connect_db.php');
+
+$resultado = $conexion -> query("select * from usuarios where idusuario=".$id)or die($conexion->error);
+  if(mysqli_num_rows($resultado)>0){
+    $fila = mysqli_fetch_row($resultado);
+    $nom_usuario = $fila[1];
+    $correo = $fila[2];
+    $username = $fila[3];
+    $contrasena = $fila[4];
+    $direccion = $fila[6];
+    $telefono = $fila[7];
+
+
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Ana Leal - Ofertas</title>
+        <title>Ana Leal - Ropa de Ocasión</title>
         
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
@@ -52,10 +68,10 @@ session_start();
                             <a class="nav-link " href="ropaboda.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link " href="ropaocasion.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                            <a class="nav-link active" aria-current="page" href="ropaocasion.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
                         </li>
                         <li class="nav-item px4">
-                            <a class="nav-link active" aria-current="page" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                            <a class="nav-link" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
@@ -94,7 +110,7 @@ session_start();
             <br><br><br><br><br><br><br>
         <!-- Insertar navbar -->
 
-       
+        
 
         <!-- Modal para cerrar sesión -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
@@ -114,67 +130,67 @@ session_start();
                 </div>
             </div>
         </div>
-
         
         <!-- Service Start -->
         <div class="service">
             <div class="container">
                 <div class="section-header text-center">
-                    <h4>Catálogo</h4>
-                    <h2>¡Ofertas!</h2>
+                    
+                    <h2>Usuario: <strong><?php echo $_SESSION['username']; ?></strong></h2>
+                    <p>Modificar datos del perfil</p>
+                </div>                
+            </div>            
+        </div>
+
+        <div class="contact" style="margin-top: 50px;">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form action="../fun/actualizarusuario.php" method="post">
+                                    <div class="control-group">
+                                        Nombre:<input type="text" class="form-control" id="name" name="name" value="<?php echo $nom_usuario;?>" placeholder="Ingresa tu Nombre" required="required" data-validation-required-message="Por favor ingresa tu Nombre" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        Username:<input type="text" class="form-control" id="username" name="username" value="<?php echo $username;?>" placeholder="Ingresa tu Nombre de Usuario" required="required" data-validation-required-message="Por favor ingresa tu Nombre de ususario" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        Correo:<input type="email" class="form-control" id="email" name="email" value="<?php echo $correo;?>" placeholder="Ingresa tu Correo" required="required" data-validation-required-message="Por favor ingresa tu Correo" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        Contraseña:<input type="pass" class="form-control" id="pass" name="pass" value="<?php echo $contrasena;?>" placeholder="Ingresa tu Contraseña" required="required" data-validation-required-message="Por favor ingresa tu contrasena" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        Telefono:<input type="text" class="form-control" id="tel" name="tel" value="<?php echo $telefono;?>" placeholder="Ingresa tu Telefono" required="required" data-validation-required-message="Por favor ingresa tu Telefono" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        Direccion:<input type="text" class="form-control" id="address" name="address" value="<?php echo $direccion;?>" placeholder="Ingresa tu nombre de Direccion" required="required" data-validation-required-message="Por favor ingresa tu Direccion" />
+                                        <input type="hidden" class="form-control" id="rol" name="rol" value="2" required="required" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div>
+                                        <input class="btn btn-outline-dark" type="submit" id="sendMessageButton" class="submit" value="Modificar datos">
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-<br>
-        <div class="container text-center">
-        <div class="row service">          
-        <?php
-            
-            include ('../conexion.php');
-            $resultado = $conexion ->query("select * from prendas order by idprenda ASC ")or die($conexion -> error);
-            while($fila = mysqli_fetch_array($resultado)){
-                $imagen=$fila['img_archivo'];
-                $descuento=$fila['iddescuento'];
 
-                if($descuento>1){
-
-        ?>
-                
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card service-item">
-                            <div class="service-img">
-                                <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
-                                <img src="<?php echo $imagen ?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
-                            </div>
-                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>""><?php echo $fila['nom_prenda'];?></a></h3>
-                            <p>
-                                <?php echo $fila['descripcion']; ?>
-                            </p>
-                            <p>$ <strong>
-                            <?php 
-                                $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
-                                while($fila2 = mysqli_fetch_array($resultado2)){
-                                    $porcentaje=$fila2['descuento'];
-                                    $porcentajenombre=$fila2['nom_descuento'];
-                                    $desc=$porcentaje/100;
-
-                                    echo $fila['precio']-($fila['precio']*$desc); 
-                                }   
-                               
-                            ?></strong> <strike><?php echo $fila['precio'] ?></strike>
-                            </p>
-                        
-                            <p><strong> <?php echo $porcentajenombre ?>!!!</strong></p>
-                            
-                            <a class="btn" href="">+ Agregar al carrito</a>
-                            
-                        </div>
-                    </div>
-                
-        <?php   }
-            } ?>
-        </div>
-        </div>
+<br><br><br>
 
         <!-- Modal para cerrar sesión -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
@@ -195,12 +211,9 @@ session_start();
             </div>
         </div>
 
-
-
-
-        <!-- Insertar footer -->
-        < <!-- Inicio de Footer -->
-        <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
+        
+         <!-- Inicio de Footer -->
+         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">
                 <form action="">
                 <!--Grid row-->
@@ -255,6 +268,5 @@ session_start();
             </div>
         </footer>
         
-        <!-- Insertar footer -->
     </body>
     </html>

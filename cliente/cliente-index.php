@@ -43,9 +43,7 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
                         </li>
-                        <li class="nav-item px-4">
-                            <a class="nav-link" href="cliente-index.php#novedades" style="text-transform: uppercase;">Novedades</a>
-                        </li>
+                        
                         <li class="nav-item px-4">
                             <a class="nav-link" href="cliente-index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
@@ -64,7 +62,7 @@ session_start();
                                 <?php echo $_SESSION['username']; ?>
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
+                                        <li><a class="dropdown-item" href="usuario.php">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="pedidos.php">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
@@ -80,7 +78,7 @@ session_start();
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item"  href="carrito.php" >Ver Carrito</a></li>
-                                        <li><a class="dropdown-item" href="#">Limpiar carrito</a></li>
+                                        <li><a class="dropdown-item" href="../fun/vaciarcarrito.php">Limpiar carrito</a></li>
                                     </ul>
                             </li>
                         </ul>
@@ -97,9 +95,9 @@ session_start();
            <div class="hovereffect">
                 <img src="https://c.pxhere.com/photos/3d/e4/bride_marriage_wedding_dress_woman_girl_model_dress_fashion-979555.jpg!d" class="mx-auto d-block w-full" alt="image">
                     <div class="overlay">
-                        <h2>Novedades</h2>
+                        <h2>Comencemos</h2>
                         <p>Explora los productos más recientes y nuevos.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="novedades.php" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <a class="btn btn-outline-dark btn-lg" href="ropaboda.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>       
         </div>
