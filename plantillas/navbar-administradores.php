@@ -66,7 +66,7 @@
                     <div class="navbar-nav ml-auto">
                         <a href="home-administrador.php" class="nav-item nav-link">Inicio</a>
                         <a href="inventario.php" class="nav-item nav-link">Inventario</a>
-                        <a href="service.html" class="nav-item nav-link">Pedidos</a>
+                        <a href="pedidos.php" class="nav-item nav-link">Pedidos</a>
                         <a href="descuentos.php" class="nav-item nav-link">Descuentos</a>
                         <a href="calendario.php" class="nav-item nav-link">Calendario</a>
                         <a href="portfolio.html" class="nav-item nav-link">FAQ</a>
