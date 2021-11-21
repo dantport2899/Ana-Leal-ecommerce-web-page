@@ -38,9 +38,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
                         </li>
-                        <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#novedades" style="text-transform: uppercase;">Novedades</a>
-                        </li>
+                    
                         <li class="nav-item px-4">
                             <a class="nav-link" href="index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
@@ -69,9 +67,9 @@
            <div class="hovereffect">
                 <img src="https://c.pxhere.com/photos/3d/e4/bride_marriage_wedding_dress_woman_girl_model_dress_fashion-979555.jpg!d" class="mx-auto d-block w-full" alt="image">
                     <div class="overlay">
-                        <h2>Novedades</h2>
-                        <p>Explora los productos más recientes y nuevos.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="" role="button" style="text-transform: uppercase;">Ver más</a>
+                        <h2>Registrate</h2>
+                        <p>Explora con totalidad todo nuestro catalogo.</p>
+                        <a class="btn btn-outline-dark btn-lg" href="registro.php" role="button" style="text-transform: uppercase;">Ver más</a>
                     </div>
             </div>       
         </div>

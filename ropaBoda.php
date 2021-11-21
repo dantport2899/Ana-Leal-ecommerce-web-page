@@ -40,9 +40,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
-                        <li class="nav-item px-4">
-                            <a class="nav-link" href="index.php#novedades" style="text-transform: uppercase;">Novedades</a>
-                        </li>
+                        
                         <li class="nav-item px-4">
                             <a class="nav-link" href="ropaboda.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
