@@ -1,36 +1,15 @@
-
 <?php
-
 //cargar la sesion
 session_start();
 
-include('../fun/connect_db.php');
-if(isset($_GET['id'])){
-$resultado = $conexion -> query("select * from prendas where idprenda=".$_GET['id'])or die($conexion->error);
-  if(mysqli_num_rows($resultado)>0){
-    $fila = mysqli_fetch_row($resultado);
-    $imagen = $fila[9];
-  }else{
-    header("Location: ../home-cliente.php");
-  }
-}
-else{
-  //redireccionar
-  header("Location: ../home-cliente.php");
-}
-?>
-
-
+ ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Detalles del Producto</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <head>
+        <meta charset="utf-8">
+        <title>Ana Leal - Ofertas</title>
+        
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
 
@@ -53,10 +32,9 @@ else{
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     
-  </head>
-  <body>
-  
-  
+    </head>
+
+    <body>
         <!-- Insertar navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container-fluid">
@@ -67,7 +45,7 @@ else{
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
+                            <a class="nav-link"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link " href="ropanovedades.php" style="text-transform: uppercase;">Novedades</a>
@@ -76,10 +54,10 @@ else{
                             <a class="nav-link " href="ropaboda.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="ropaocasion.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                            <a class="nav-link " href="ropaocasion.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
                         </li>
                         <li class="nav-item px4">
-                            <a class="nav-link" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                            <a class="nav-link active" aria-current="page" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="contactanos.php" style="text-transform: uppercase;">Contáctanos</a>
@@ -116,8 +94,11 @@ else{
                 </div>
             </nav>
             <br><br><br><br><br><br><br>
+        <!-- Insertar navbar -->
 
-            <!-- Modal para cerrar sesión -->
+       
+
+        <!-- Modal para cerrar sesión -->
         <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -135,121 +116,70 @@ else{
                 </div>
             </div>
         </div>
-        <!-- Insertar navbar -->
 
-          
+        
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h4>Catálogo</h4>
+                    <h2>¡Ofertas!</h2>
+                </div>
+            </div>
+        </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="<?php echo $imagen ?>" alt="<?php echo $fila[1];?>" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-            <h2 class="text-black"><?php echo $fila[1];?></h2>
-            <p><?php echo $fila[10];?></p>
-            <p>
-                <?php
-                $descuento=$fila[12];
+        <div class="container text-center">
+        <div class="row service">          
+        <?php
+            
+            include ('../conexion.php');
+            $resultado = $conexion ->query("select * from prendas order by idprenda ASC ")or die($conexion -> error);
+            while($fila = mysqli_fetch_array($resultado)){
+                $imagen=$fila['img_archivo'];
+                $descuento=$fila['iddescuento'];
 
-                if($descuento>1){ 
-                    $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
+                if($descuento>1){
+
+        ?>
+                
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-item">
+                            <div class="service-img">
+                                <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
+                                <img src="<?php echo $imagen ?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
+                            </div>
+                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>""><?php echo $fila['nom_prenda'];?></a></h3>
+                            <p>
+                                <?php echo $fila['descripcion']; ?>
+                            </p>
+                            <p>$ <strong>
+                            <?php 
+                                $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
                                 while($fila2 = mysqli_fetch_array($resultado2)){
                                     $porcentaje=$fila2['descuento'];
                                     $porcentajenombre=$fila2['nom_descuento'];
                                     $desc=$porcentaje/100;
-                                    $preciofinal=$fila[3]-($fila[3]*$desc);
-                              
-                ?>
 
-                    <strong class="text-primary h4">$<?php echo $preciofinal; ?></strong>
-                    <strike>$<?php echo $fila[3] ?></strike> <?php echo $porcentajenombre ?>
-                <?php }}else{ 
-                    $preciofinal=$fila[3];
-                ?>
-                    <strong class="text-primary h4">$<?php echo $preciofinal ?></strong>
-                <?php } ?>
-            </p>
-            <div class="mb-1 d-flex">
-              <p><strong>Stock:</strong> <?php echo $fila[11];?></p>
-            </div>
-            <p>
-                <?php
-                        require("../fun/connect_db.php");
-                        $sql2="SELECT * FROM departamento WHERE iddepartamento='$fila[4]'";
-                        $result2=mysqli_query($conexion,$sql2);
-
-                        while ($dep=mysqli_fetch_array($result2)) {
-                            echo $dep['nom_departamento'];
-                        }
-                ?>
-
-            </p>
-            <p><strong>Talla:</strong>
-                <?php
-                         require("../fun/connect_db.php");
-                         $sql3="SELECT * FROM talla WHERE idtalla='$fila[2]' ";
-                         $result3=mysqli_query($conexion,$sql3);
-
-                         while ($tallaprodcuto=mysqli_fetch_array($result3)) {
-                            $talla=$tallaprodcuto['nom_talla'];
-                            echo $talla;
-                         }
-                ?>
-
-            </p>
-            <p><strong>Material:</strong>
-                <?php
-                         require("../fun/connect_db.php");
-                         $sql4="SELECT * FROM material WHERE idmaterial='$fila[6]' ";
-                         $result4=mysqli_query($conexion,$sql4);
-
-                         while ($materialprodcuto=mysqli_fetch_array($result4)) {
-                            echo $materialprodcuto['nom_material'];
-                         }
-                ?>
-
-            </p>
-            <p><strong>Color:</strong>
-                <?php
-                            echo $fila[5];                       
-                ?>
-
-            </p>
-            <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 120px;">
-
-
-              <form action="../fun/carritofun.php" method="POST">
-                <select name="cantidad" id="cant">
-                    <?php
-                    for($i=1;$i<=$fila[11];$i++){
-                    ?>
-                        <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                    <?php
-                    }
-                    ?>
-                </select>
-
-                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                        <input type="hidden" name="nombre" value="<?php echo $fila[1];?>">
-                        <input type="hidden" name="descripcion" value="<?php echo $fila[10];?>">
-                        <input type="hidden" name="precio" value="<?php echo $preciofinal;?>">
-                        <input type="hidden" name="imagen" value="<?php echo $imagen ?>">
-                        <input type="hidden" name="color" value="<?php echo $fila[5] ?>">
-                        <input type="hidden" name="talla" value="<?php echo $talla;?>">
-                </div>
-                <input type="submit"  class="buy-now btn btn-sm btn-primary" value="+ Agregar al Carrito">
-            
-            </form>
-          </div>
+                                    echo $fila['precio']-($fila['precio']*$desc); 
+                                }   
+                               
+                            ?></strong> <strike><?php echo $fila['precio'] ?></strike>
+                            </p>
+                        
+                            <p><strong> <?php echo $porcentajenombre ?>!!!</strong></p>
+                            
+                            <a class="btn" href="">+ Agregar al carrito</a>
+                            
+                        </div>
+                    </div>
+                
+        <?php   }
+            } ?>
         </div>
-      </div>
-    </div>
-    <br><br><br><br><br><br>
+        </div>
 
-    <!-- Modal para cerrar sesión -->
-    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <!-- Modal para cerrar sesión -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -266,9 +196,13 @@ else{
                 </div>
             </div>
         </div>
-   
-   <!-- Inicio de Footer -->
-   <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
+
+
+
+
+        <!-- Insertar footer -->
+        < <!-- Inicio de Footer -->
+        <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">
                 <form action="">
                 <!--Grid row-->
@@ -304,7 +238,6 @@ else{
 
             </div>
             
-            
             <!-- Texto sobre los detalles del negocio o empresa -->
             <div class="container">
                 <p style="text-align: center;">Descripción breve del negocio y sobre qué detalles tiene.</p>
@@ -324,6 +257,6 @@ else{
             </div>
         </footer>
         
-      
-  </body>
-</html>
+        <!-- Insertar footer -->
+    </body>
+    </html>
