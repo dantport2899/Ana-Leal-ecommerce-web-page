@@ -140,14 +140,19 @@ include('../fun/paypalconfig.php');
                 $SID=$_SESSION['idusuario'];
                 $correo=$_POST['email'];
                 $clavetrnsaccion="ssdadasf";
-                $descripcion="descripcion";
                 $direccion=$_POST['direccion'];
+                $i=0;
 
 
                 foreach ($_SESSION['CARRITO'] as $indice=>$producto) 
                 {
                     $total=$total+($producto['CANTIDAD']*$producto['PRECIO']);
+                    $i++;
                 }
+
+                settype($i,"string");
+                $usuario=$_SESSION['username'];
+                $descripcion="El usuario: " .$usuario. " compro " .$i. " productos";
 
                 $sql="INSERT INTO `pedidos` (`idpedidos`, `clavetransaccion`, `paypaldatos`, `idusuario`, `correo`, `total`, `fecha`, `fechaentrega`, `descripcion`, `direccion`, `status`) 
                 VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), NULL, '$descripcion', '$direccion', 'PENDIENTE')" ;
