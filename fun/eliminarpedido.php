@@ -2,16 +2,16 @@
 //conectar con la base de datos
 require("connect_db.php");
 
-$id = $_POST['id'];
+$idpedidos = $_POST['idpedidos'];
    
 
           
-$sqlborrar="DELETE from pedidos where id=$id";
+$sqlborrar="DELETE from pedidos where idpedidos=$idpedidos";
 $resborrar=mysqli_query($conexion, $sqlborrar);
            
 if($resborrar)
     {
-        echo '<script>alert ("Descuento eliminado")</script>';
+        echo '<script>alert ("Pedido eliminado")</script>';
     }else
     {
         echo "Error de eliminacion<br>" .mysqli_error($conexion);

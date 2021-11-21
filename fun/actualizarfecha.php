@@ -3,7 +3,7 @@ extract($_POST);
 require("connect_db.php");
 
 
-$cambio="UPDATE pedidos SET fechaentrega='$fechaentrega', fecha='$fecha' WHERE id='$idpedidos";
+$cambio="UPDATE pedidos SET fechaentrega='$fechaentrega', fecha='$fecha' WHERE idpedidos='$idpedidos'";
 
 $rescamb=mysqli_query($conexion, $cambio);
 
@@ -14,6 +14,6 @@ if($rescamb==null){
 }else{
   echo '<script>alert("Registro exitoso")</script>' .mysqli_error($conexion);
  
-  echo "<script>location.href='../administrador/descuentos.php'</script>";
+  echo "<script>location.href='../administrador/pedidos.php'</script>";
 }
  ?>
