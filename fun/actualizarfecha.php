@@ -3,7 +3,7 @@ extract($_POST);
 require("connect_db.php");
 
 
-$cambio="UPDATE pedidos SET 'status'='$status' WHERE id='$idpedidos";
+$cambio="UPDATE pedidos SET fechaentrega='$fechaentrega', fecha='$fecha' WHERE id='$idpedidos";
 
 $rescamb=mysqli_query($conexion, $cambio);
 

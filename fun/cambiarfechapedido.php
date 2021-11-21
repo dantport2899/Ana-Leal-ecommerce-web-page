@@ -62,7 +62,7 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Modificar estado del pedido: <?php echo $status ?> </h2>
+                        <h2>Modificar la fecha del pedido: <?php echo $fecha ?> </h2>
                     </div>
                    
                 </div>
@@ -81,9 +81,10 @@ session_start();
                     <div class="col-lg-7 col-md-6">
                         
                         <div class="about-text">
-                            <form action="../fun/actualizardescuento.php" method="POST" enctype="multipart/form-data" >
+                            <form action="../fun/actualizarfecha.php" method="POST" enctype="multipart/form-data" >
                                 <div class="control-group">
-                                <p>Descripcion: <?php echo $descripcion ?></p>
+                                <p>Fecha de solicitud: <?php echo $fecha ?></p>
+                                <p>Fecha de entrega: <?php echo $fechaDeEntrega ?></p>
                                 </div>
 
                                 <div class="control-group">
