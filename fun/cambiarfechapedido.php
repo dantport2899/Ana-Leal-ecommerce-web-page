@@ -105,7 +105,7 @@ session_start();
 
     
                             
-                                <a class="btn" href="pedidos.php"><input class="btn" id="sendMessageButton" type="submit" value="Modificar" ></a>
+                                <a class="btn" ><input class="btn" id="sendMessageButton" type="submit" value="Modificar" ></a>
 
                                 </div>
 
