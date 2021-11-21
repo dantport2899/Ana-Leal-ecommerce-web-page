@@ -131,7 +131,7 @@ $datos = json_encode($data);
                     </ul>
                     <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="" style="text-transform: uppercase;"><?php echo $_SESSION['username'] ?></a>
+                            <a class="nav-link" href="usuarioadmin.php" style="text-transform: uppercase;"><?php echo $_SESSION['username'] ?></a>
                         </li>
                         <li class="nav-item px-2">
                             <a class="nav-link" href="../fun/desconectar.php" style="text-transform: uppercase;">Cerrar Sesion</a>
