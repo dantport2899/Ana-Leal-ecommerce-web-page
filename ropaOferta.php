@@ -85,25 +85,45 @@
             $resultado = $conexion ->query("select * from prendas order by idprenda ASC ")or die($conexion -> error);
             while($fila = mysqli_fetch_array($resultado)){
                 $imagen=$fila['img_archivo'];
+                $descuento=$fila['iddescuento'];
+
+                if($descuento>1){
+
         ?>
                 
                     <div class="col-lg-4 col-md-6">
                         <div class="card service-item">
                             <div class="service-img">
                                 <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
-                                <img src="src/prendas/<?php echo $fila['img_nombre'];?>/<?php echo $fila['img_nombre'];?>"></a>
+                                <img src="src/prendas/<?php echo $fila['img_nombre'];?>/<?php echo $fila['img_nombre'];?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
                             </div>
-                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>""><?php echo $fila['nom_prenda'];?></a></h3>
+                            <h3><a href="registro.php"><?php echo $fila['nom_prenda'];?></a></h3>
                             <p>
                                 <?php echo $fila['descripcion']; ?>
                             </p>
-                            <p>$<?php echo $fila['precio']; ?></p>
-                            <a class="btn" href="">+ Agregar al carrito</a>
+                            <p>$ <strong>
+                            <?php 
+                                $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
+                                while($fila2 = mysqli_fetch_array($resultado2)){
+                                    $porcentaje=$fila2['descuento'];
+                                    $porcentajenombre=$fila2['nom_descuento'];
+                                    $desc=$porcentaje/100;
+
+                                    echo $fila['precio']-($fila['precio']*$desc); 
+                                }   
+                               
+                            ?></strong> <strike><?php echo $fila['precio'] ?></strike>
+                            </p>
+                        
+                            <p><strong> <?php echo $porcentajenombre ?>!!!</strong></p>
+                            
+                            <a class="btn" href="registro.php">+ Agregar al carrito</a>
                             
                         </div>
                     </div>
                 
-        <?php } ?>
+        <?php   }
+            } ?>
         </div>
         </div>
         <br><br><br><br><br>

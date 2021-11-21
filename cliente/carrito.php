@@ -83,7 +83,7 @@ include('../fun/connect_db.php');
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
-                                        <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
+                                        <li><a class="dropdown-item" href="pedidos.php" >Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
@@ -163,10 +163,7 @@ include('../fun/connect_db.php');
                             </td>
                             <td class="td-number">
                                 <?php echo $producto['CANTIDAD']; ?>
-                                <div class="btn-group">
-                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Remover</i> </button>
-                                    <button class="btn btn-round btn-info btn-sm"> <i class="material-icons">Agregar</i> </button>
-                                </div>
+                                
                             </td>
                             <td class="td-number text-center">
                                 $<STrong><?php echo $producto['PRECIO'] * $producto['CANTIDAD']; ?></STrong>

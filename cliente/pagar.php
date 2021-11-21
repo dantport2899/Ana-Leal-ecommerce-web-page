@@ -5,6 +5,7 @@
 session_start();
 
 include('../fun/connect_db.php');
+include('../fun/paypalconfig.php');
 
 ?>
 
@@ -41,9 +42,12 @@ include('../fun/connect_db.php');
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
-        <!--paypal -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>   
+ 
         
 
   </head>
@@ -84,7 +88,7 @@ include('../fun/connect_db.php');
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
-                                        <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
+                                        <li><a class="dropdown-item" href="pedidos.php">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
@@ -147,10 +151,17 @@ include('../fun/connect_db.php');
                     $total=$total+($producto['CANTIDAD']*$producto['PRECIO']);
                 }
 
-                $sql="INSERT INTO `pedidos` (`idpedidos`, `clavetransaccion`, `paypaldatos`, `idusuario`, `correo`, `total`, `fecha`, `descripcion`, `direccion`, `status`) 
-                VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), '$descripcion', '$direccion', 'PENDIENTE')" ;
+                $sql="INSERT INTO `pedidos` (`idpedidos`, `clavetransaccion`, `paypaldatos`, `idusuario`, `correo`, `total`, `fecha`, `fechaentrega`, `descripcion`, `direccion`, `status`) 
+                VALUES (NULL, '$clavetrnsaccion', '', '$SID', '$correo', '$total', NOW(), NULL, '$descripcion', '$direccion', 'PENDIENTE')" ;
 
                 $result=mysqli_query($conexion, $sql);
+                if($result)
+                    {
+
+                    }else
+                    {
+                        echo "Error de registro<br>" .mysqli_error($conexion);
+                    }
 
                 $ultimoID = $conexion->insert_id;
 
@@ -159,36 +170,42 @@ include('../fun/connect_db.php');
                     $sql2="INSERT INTO `carrito` (`idcarrito`, `idpedido`, `idprenda`, `preciounitario`, `cantidad`, `vendido`) 
                     VALUES (NULL, '$ultimoID', '".$producto['ID']."', '".$producto['PRECIO']."', '".$producto['CANTIDAD']."', '0')";
                     $result2=mysqli_query($conexion, $sql2);
+
+                    if($result2)
+                    {
+                    
+                    }else
+                    {
+                        echo "Error de registro<br>" .mysqli_error($conexion);
+                    }
                     
                 }
-                
+     
             }
         ?>
 
-    <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    
 
     <div class="jumbotron text-center">
         <h1 class="display-4">¡Paso final!</h1>
         <hr class="my-4">
         <p class="lead"> Estas a punto de pagar con paypal la cantidad de: 
             <h4>$<?php echo number_format($total,2)?></h4>
-            <div id="paypal-button-container"></div>
+            <br>
+            <?php
+            
+            $currency = "MXN";
+            $productPrice = $total;
+            
+            ?>
+            <?php include 'paypalcheckout.php'; ?>
 
         </p>
         
         <p>Los productos seran enviados una vez se procese el pago<br>
             <strong>(Para aclaraciones contactarnos por nuestros correos o redes sociales)</strong>
         </p>
-        
-                <!-- Set up a container element for the button -->
            
-            
-
-            <script>
-            // Render the PayPal button into #paypal-button-container
-            paypal.Buttons().render('#paypal-button-container');
-            </script>
         
     </div>
 

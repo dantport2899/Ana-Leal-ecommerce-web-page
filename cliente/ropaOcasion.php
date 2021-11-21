@@ -69,7 +69,7 @@ session_start();
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
-                                        <li><a class="dropdown-item" href="#">Revisar pedidos</a></li>
+                                        <li><a class="dropdown-item" href="pedidos.php">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
@@ -127,6 +127,7 @@ session_start();
             </div>
         </div>
 
+        <br>
         <div class="container text-center">
         <div class="row service">          
         <?php

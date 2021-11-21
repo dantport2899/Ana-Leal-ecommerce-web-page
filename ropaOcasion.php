@@ -93,12 +93,12 @@
                                 <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
                                 <img src="src/prendas/<?php echo $fila['img_nombre'];?>/<?php echo $fila['img_nombre'];?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
                             </div>
-                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>"><?php echo $fila['nom_prenda'];?></a></h3>
+                            <h3><a href="registro.php"><?php echo $fila['nom_prenda'];?></a></h3>
                             <p>
                                 <?php echo $fila['descripcion']; ?>
                             </p>
                             <p>$<?php echo $fila['precio']; ?></p>
-                            <a class="btn" href="">+ Agregar al carrito</a>
+                            <a class="btn" href="registro.php">+ Agregar al carrito</a>
                             
                         </div>
                     </div>

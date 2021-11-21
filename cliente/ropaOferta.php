@@ -7,7 +7,11 @@ session_start();
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Ana Leal</title>
+        <title>Ana Leal - Ofertas</title>
+        
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -15,9 +19,9 @@ session_start();
         <!-- CSS Libraries -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="../lib/animate/animate.min.css" rel="stylesheet">
+        <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -27,12 +31,12 @@ session_start();
         <!-- JS Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
     </head>
 
-    <body style="padding-top: 80px;">
-        <header>  
-            <!-- Fixed navbar -->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <body>
+        <!-- Insertar navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container-fluid">
                 <a class="navbar-brand pr-3" href="#" style="font-family: Bodoni FS; font-size: 45px;" >ANA LEAL</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,22 +45,22 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" style="text-transform: uppercase;">Inicio</a>
+                            <a class="nav-link"  href="cliente-index.php" style="text-transform: uppercase;">Inicio</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="cliente-index.php#novedades" style="text-transform: uppercase;">Novedades</a>
+                            <a class="nav-link " href="ropanovedades.php" style="text-transform: uppercase;">Novedades</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="cliente-index.php#boda" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
+                            <a class="nav-link " href="ropaboda.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;boda</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="cliente-index.php#ocasion" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
+                            <a class="nav-link " href="ropaocasion.php" style="text-transform: uppercase;">Ropa&nbsp;de&nbsp;ocasión</a>
                         </li>
                         <li class="nav-item px4">
-                            <a class="nav-link" href="cliente-index.php#oferta" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
+                            <a class="nav-link active" aria-current="page" href="ropaoferta.php" style="text-transform: uppercase;">Ropa&nbsp;en&nbsp;oferta</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="cliente-index.php#ELFOOTER" style="text-transform: uppercase;">Contáctanos</a>
+                            <a class="nav-link" href="contactanos.php" style="text-transform: uppercase;">Contáctanos</a>
                         </li>
                         <ul class="navbar-nav ml-auto mb-2 mb-md-0">
                             <li class="nav-item dropdown">
@@ -67,7 +71,7 @@ session_start();
                                         <li><a class="dropdown-item" href="#">Ir a perfil</a></li>
                                         <li><a class="dropdown-item" href="pedidos.php">Revisar pedidos</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Cerrar sesión</a></li>
                                     </ul>
                             </li>
                         </ul>
@@ -89,55 +93,89 @@ session_start();
                     </ul> 
                 </div>
             </nav>
+            <br><br><br><br><br><br><br>
+        <!-- Insertar navbar -->
 
-  
-        </header>
-        <!-- Novedades -->
-        <div class="novedades" id="novedades">
-           <div class="hovereffect">
-                <img src="https://c.pxhere.com/photos/3d/e4/bride_marriage_wedding_dress_woman_girl_model_dress_fashion-979555.jpg!d" class="mx-auto d-block w-full" alt="image">
-                    <div class="overlay">
-                        <h2>Novedades</h2>
-                        <p>Explora los productos más recientes y nuevos.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="novedades.php" role="button" style="text-transform: uppercase;">Ver más</a>
-                    </div>
-            </div>       
-        </div>
+       
 
-        <!-- Ropa de boda -->
-        <div class="boda" id="boda">
-            <div class="hovereffect">
-                <img src="../src/prendas/index-boda.jpg" class="mx-auto d-block w-100" alt="image">
-                    <div class="overlay">
-                        <h2>Ropa de boda</h2>
-                        <p>¿Tienes una boda o compromiso similar? Aquí encontrarás tu vestido ideal para la ocasión.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaboda.php" role="button" style="text-transform: uppercase;">Ver más</a>
+        <!-- Modal para cerrar sesión -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">¿Cerrar sesión?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
+                    <div class="modal-body">
+                        <p>Cualquier pedido no confirmado se cancelará</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='../index.php'" onclick="window.location.href='../fun/desconectar.php'">Cerrar sesión</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Ropa de ocasion -->
-        <div class="ocasion" id="ocasion">
-            <div class="hovereffect">
-                <img src="../src/prendas/index-casual.jpeg" class="mx-auto d-block w-100" alt="image">
-                    <div class="overlay">
-                        <h2>Ropa de ocasión</h2>
-                        <p>¿Buscas algo casual? Explora nuestras prendas especiales para toda ocasión casual.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaocasion.php" role="button" style="text-transform: uppercase;">Ver más</a>
-                    </div>
-            </div>
-        </div>
         
-        <!-- Ropa en oferta -->
-        <div class="oferta" id="oferta">
-            <div class="hovereffect">
-                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fabeautifulmess.typepad.com%2F.a%2F6a00d8358081ff69e2016301db4217970d-800wi&f=1&nofb=1" class="mx-auto d-block w-100" alt="image">
-                    <div class="overlay">
-                        <h2>Ropa en oferta</h2>
-                        <p>¿Deseas ahorrar? Explora nuestro catálogo centrado en ofertas.</p>
-                        <a class="btn btn-outline-dark btn-lg" href="ropaoferta.php" role="button" style="text-transform: uppercase;">Ver más</a>
-                    </div>
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h4>Catálogo</h4>
+                    <h2>¡Ofertas!</h2>
+                </div>
             </div>
+        </div>
+<br>
+        <div class="container text-center">
+        <div class="row service">          
+        <?php
+            
+            include ('../conexion.php');
+            $resultado = $conexion ->query("select * from prendas order by idprenda ASC ")or die($conexion -> error);
+            while($fila = mysqli_fetch_array($resultado)){
+                $imagen=$fila['img_archivo'];
+                $descuento=$fila['iddescuento'];
+
+                if($descuento>1){
+
+        ?>
+                
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card service-item">
+                            <div class="service-img">
+                                <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
+                                <img src="<?php echo $imagen ?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
+                            </div>
+                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>""><?php echo $fila['nom_prenda'];?></a></h3>
+                            <p>
+                                <?php echo $fila['descripcion']; ?>
+                            </p>
+                            <p>$ <strong>
+                            <?php 
+                                $resultado2 = $conexion ->query("select * from descuentos where iddescuento=$descuento")or die($conexion -> error);
+                                while($fila2 = mysqli_fetch_array($resultado2)){
+                                    $porcentaje=$fila2['descuento'];
+                                    $porcentajenombre=$fila2['nom_descuento'];
+                                    $desc=$porcentaje/100;
+
+                                    echo $fila['precio']-($fila['precio']*$desc); 
+                                }   
+                               
+                            ?></strong> <strike><?php echo $fila['precio'] ?></strike>
+                            </p>
+                        
+                            <p><strong> <?php echo $porcentajenombre ?>!!!</strong></p>
+                            
+                            <a class="btn" href="">+ Agregar al carrito</a>
+                            
+                        </div>
+                    </div>
+                
+        <?php   }
+            } ?>
+        </div>
         </div>
 
         <!-- Modal para cerrar sesión -->
@@ -159,7 +197,11 @@ session_start();
             </div>
         </div>
 
-        <!-- Inicio de Footer -->
+
+
+
+        <!-- Insertar footer -->
+        < <!-- Inicio de Footer -->
         <footer class="footer mt-auto py-3 bg-light bg-dark text-white">
             <div class="container">
                 <form action="">
@@ -215,5 +257,6 @@ session_start();
             </div>
         </footer>
         
+        <!-- Insertar footer -->
     </body>
-</html>
+    </html>
