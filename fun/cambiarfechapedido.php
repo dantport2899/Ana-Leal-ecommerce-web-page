@@ -48,7 +48,10 @@ session_start();
             while ($desc=mysqli_fetch_array($resultdesc)) {
                         $descripcion=$desc['descripcion'];
                         $total=$desc['total'];
-                        $status=$desc['status'];                
+                        $status=$desc['status'];
+                        $fecha=$desc['fecha'];
+                        $fechaentrega=$desc['fechaentrega'];
+                        $idpedidos=$desc['idpedidos'];                
                         
             }                               
         ?>
@@ -84,20 +87,23 @@ session_start();
                             <form action="../fun/actualizarfecha.php" method="POST" enctype="multipart/form-data" >
                                 <div class="control-group">
                                 <p>Fecha de solicitud: <?php echo $fecha ?></p>
-                                <p>Fecha de entrega: <?php echo $fechaDeEntrega ?></p>
-                                </div>
 
                                 <div class="control-group">
-                                <p>Total: <?php echo $total ?></p>
+                                        <input type="date" class="form-control" id="name" name="fecha" value="<?php echo $fecha ?>"/>
+                                        <p class="help-block text-danger"></p>
                                 </div>
 
-                                <select name="status" id="status">
-                                    <option value="No aceptado">No aceptado</option>
-                                    <option value="Pendiente">Pendiente</option>
-                                    <option value="Aceptado">Aceptado</option>
-                                </select>
-                                
-                                <div class="about-text">
+                                <p>Fecha de entrega: <?php echo $fechaentrega ?></p>
+                                </div>
+
+                                <input type="hidden" name="idpedidos" value="<?php echo $idpedidos ?>">
+
+                                <div class="control-group">
+                                <input type="date" class="form-control" id="name" name="fechaentrega" value="<?php echo $fechaentrega ?>"/>
+                                        <p class="help-block text-danger"></p>
+                                </div>
+
+    
                             
                                 <a class="btn" href="pedidos.php"><input class="btn" id="sendMessageButton" type="submit" value="Modificar" ></a>
 

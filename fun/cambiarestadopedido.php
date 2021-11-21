@@ -48,7 +48,7 @@ session_start();
             while ($desc=mysqli_fetch_array($resultdesc)) {
                         $descripcion=$desc['descripcion'];
                         $total=$desc['total'];
-                        $status=$desc['status'];                
+                        $estado=$desc['status'];                
                         
             }                               
         ?>
@@ -62,7 +62,7 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Modificar estado del pedido: <?php echo $status ?> </h2>
+                        <h2>Modificar estado del pedido: <?php echo $estado ?> </h2>
                     </div>
                    
                 </div>
@@ -81,16 +81,18 @@ session_start();
                     <div class="col-lg-7 col-md-6">
                         
                         <div class="about-text">
-                            <form action="../fun/actualizardescuento.php" method="POST" enctype="multipart/form-data" >
+                            <form action="../fun/actualizarpedido.php" method="POST" enctype="multipart/form-data" >
                                 <div class="control-group">
                                 <p>Descripcion: <?php echo $descripcion ?></p>
                                 </div>
+
+                                <input type="hidden" name="idpedidos" value="<?php echo $id ?>">
 
                                 <div class="control-group">
                                 <p>Total: <?php echo $total ?></p>
                                 </div>
 
-                                <select name="status" id="status">
+                                <select name="estado" id="status">
                                     <option value="No aceptado">No aceptado</option>
                                     <option value="Pendiente">Pendiente</option>
                                     <option value="Aceptado">Aceptado</option>
