@@ -131,7 +131,7 @@ session_start();
         <?php
             
             include ('../fun/connect_db.php');
-            $resultado = $conexion ->query("select * from prendas WHERE idestilo = '2' order by idprenda ASC ")or die($conexion -> error);
+            $resultado = $conexion ->query("select * from prendas WHERE idepartamento = '2' order by idprenda ASC ")or die($conexion -> error);
             while($fila = mysqli_fetch_array($resultado)){
                 $imagen=$fila['img_archivo'];
         ?>
