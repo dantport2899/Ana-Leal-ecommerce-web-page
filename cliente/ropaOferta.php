@@ -146,7 +146,7 @@ session_start();
                                 <a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>">
                                 <img src="<?php echo $imagen ?>" alt="<?php echo $fila['nom_prenda'];?>"></a>
                             </div>
-                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>""><?php echo $fila['nom_prenda'];?></a></h3>
+                            <h3><a href="detalleProducto.php?id=<?php echo $fila['idprenda'];?>"><?php echo $fila['nom_prenda'];?></a></h3>
                             <p>
                                 <?php echo $fila['descripcion']; ?>
                             </p>

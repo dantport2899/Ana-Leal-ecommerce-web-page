@@ -120,10 +120,10 @@ $datos = json_encode($data);
                             <a class="nav-link " href="pedidos.php" style="text-transform: uppercase;">Pedidos</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link " href="descuentos" style="text-transform: uppercase;">Descuentos</a>
+                            <a class="nav-link " href="descuentos.php" style="text-transform: uppercase;">Descuentos</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link active" aria-current="page" href="calendario" style="text-transform: uppercase;">Calendario</a>
+                            <a class="nav-link active" aria-current="page" href="calendario.php" style="text-transform: uppercase;">Calendario</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="ayuda.php" style="text-transform: uppercase;">Ayuda</a>

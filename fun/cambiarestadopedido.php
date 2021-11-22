@@ -59,10 +59,10 @@ session_start();
                             <a class="nav-link active" aria-current="page" href="../administrador/pedidos.php" style="text-transform: uppercase;">Pedidos</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="../administrador/descuentos" style="text-transform: uppercase;">Descuentos</a>
+                            <a class="nav-link" href="../administrador/descuentos.php" style="text-transform: uppercase;">Descuentos</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="../administrador/calendario" style="text-transform: uppercase;">Calendario</a>
+                            <a class="nav-link" href="../administrador/calendario.php" style="text-transform: uppercase;">Calendario</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="../administrador/ayuda.php" style="text-transform: uppercase;">Ayuda</a>
